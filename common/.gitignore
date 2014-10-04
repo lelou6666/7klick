@@ -1,0 +1,10 @@
+# Maven
+*.class
+target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Liquibase
+migrate.sql

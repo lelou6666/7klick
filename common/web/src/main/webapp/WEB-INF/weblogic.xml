@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.4/weblogic-web-app.xsd">
+    <description>WebLogic Descriptor</description>
+
+
+    <jsp-descriptor>
+        <precompile>true</precompile>
+        <precompile-continue>true</precompile-continue>
+        <rtexprvalue-jsp-param-name>true</rtexprvalue-jsp-param-name>
+        <compress-html-template>true</compress-html-template>
+    </jsp-descriptor>
+
+    <charset-params>
+        <input-charset>
+            <resource-path>*</resource-path>
+            <java-charset-name>UTF-8</java-charset-name>
+        </input-charset>
+    </charset-params>
+
+    <url-match-map>
+        weblogic.servlet.utils.SimpleApacheURLMatchMap
+    </url-match-map>
+
+    <context-root>/common-web</context-root>
+
+</weblogic-web-app>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <bean id="contentNegotiationManager"
+          class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="true" />
+        <property name="favorParameter" value="true" />
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="defaultContentType" value="application/xml" />
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json" />
+                <entry key="xml" value="application/xml" />
+                <entry key="wsdl" value="application/xml" />
+                <entry key="wadl" value="application/xml" />
+            </map>
+        </property>
+    </bean>
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1"/>
+        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+        <property name="defaultViews">
+            <list>
+                <bean
+                        class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+                    <property name="contentType" value="application/json"/>
+                    <property name="encoding" value="UTF8"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
+    <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+    <bean id="i18n-common" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="classpath:localization/cirrus-messages"/>
+    </bean>
+    <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <context:component-scan base-package="com.primelog.cirrus.common.util"/>
+
+    <bean id="encryptionUtil" class="com.sevenklick.common.util.helpers.EncryptionUtil" factory-method="getInstance" lazy-init="false"/>
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="en" />
+        <property name="cookieName" value="myAppLocaleCookie"></property>
+        <property name="cookieMaxAge" value="3600"></property>
+    </bean>
+
+    <mvc:interceptors>
+        <bean
+                class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="locale" />
+        </bean>
+    </mvc:interceptors>
+
+</beans>
+

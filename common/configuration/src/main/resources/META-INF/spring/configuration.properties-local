@@ -1,0 +1,82 @@
+##################################################################################################################
+### Spring configuration property OVERRIDES (bean-name.property):                                              ###
+### Same as configuration.properties, but with all (default) properties commented out.                         ###
+### Only uncomment lines and change its' values to reflect local properties for the current server instance.   ###
+### Keep all lines commented out that should keep its default value.                                           ###
+### Put the file in a local folder on the server and activate it by setting the                                ###
+###   -Dcirrus.config.file parameter to the file name (with full path)                                         ###
+##################################################################################################################
+
+##
+## DATABASE
+##
+#abstractVendorAdaptor.database=ORACLE
+
+#primelogDataSource.driverClassName=oracle.jdbc.driver.OracleDriver
+### Default and alternative urls (Uncomment only ONE!)
+#primelogDataSource.url=jdbc:oracle:thin:@10.61.32.74:1523:t1utf8
+##primelogDataSource.url=jdbc:oracle:thin:@10.61.32.10:1523:partner1
+##primelogDataSource.url=jdbc:oracle:thin:@10.61.32.42:1523:partner3
+##primelogDataSource.url=jdbc:oracle:thin:@10.61.32.106:1523:p1uat
+##primelogDataSource.url=jdbc:oracle:thin:@10.61.32.138:1523:p3uat
+#primelogDataSource.username=primeloguser
+#primelogDataSource.password=pluser53nu
+
+#liquibaseDataSource.driverClassName=oracle.jdbc.driver.OracleDriver
+### Default and alternative urls (Uncomment only ONE!; Must correspond to the primelogDataSource url above!)
+#liquibaseDataSource.url=jdbc:oracle:thin:@10.61.32.74:1523:t1utf8
+##liquibaseDataSource.url=jdbc:oracle:thin:@10.61.32.10:1523:partner1
+##liquibaseDataSource.url=jdbc:oracle:thin:@10.61.32.42:1523:partner3
+##liquibaseDataSource.url=jdbc:oracle:thin:@10.61.32.106:1523:p1uat
+##liquibaseDataSource.url=jdbc:oracle:thin:@10.61.32.138:1523:p3uat
+#liquibaseDataSource.username=liquibase
+#liquibaseDataSource.password=liquibase
+
+##
+## SMTP
+##
+#primelogMailSender.host=smtp.gmail.com
+#primelogMailSender.port=587
+#primelogMailSender.username=primelog66@gmail.com
+#primelogMailSender.password=dcix48troll
+
+#primelogCustomMailMessage.from=from@no-spam.com
+#primelogCustomMailMessage.to=to@no-spam.com
+#primelogCustomMailMessage.subject=Testing Subject
+#primelogCustomMailMessage.text=&lt;![CDATA[ \
+#Dear %s, \
+#Mail Content : %s \
+#]]&gt;
+
+##
+## REMOTING
+##
+# LOCAL DEV ENVIRONMENT
+#remoting.common.web.root.url = http://localhost:7001
+# TEST,UAT, UAT3 ENVIRONMENT
+#remoting.common.web.root.url = https://10.61.11.54
+# LMS
+#remoting.common.web.root.url = https://lms.primelog.com
+# LMS3
+#remoting.common.web.root.url = https://lms3.primelog.com
+
+
+##Webservice root context
+#local
+#wsdl.server.instance=localhost
+#wsdl.server.port=:7001
+#test
+#wsdl.server.instance=test.primelog.com
+#wsdl.server.port=
+#uat
+#wsdl.server.instance=uat.primelog.com
+#wsdl.server.port=
+#uat3
+#wsdl.server.instance=uat3.primelog.com
+#wsdl.server.port=
+#lms
+#wsdl.server.instance=lms.primelog.com
+#wsdl.server.port=
+#lms3
+#wsdl.server.instance=lms3.primelog.com
+#wsdl.server.port=

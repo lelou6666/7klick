@@ -1,0 +1,7 @@
+<!DOCTYPE html >
+<div class="cirrus-error-content" th:fragment="errorFragment" xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+    <div class="errorMessageUser" th:text="${cirrusError.userMessage}"/>
+    <div class="errorURL" style="visibility: hidden" th:text="${cirrusError.url}"/>
+    <div class="errorMessageTechnical" style="visibility: hidden" th:text="${cirrusError.technicalMessage}"/>
+</div>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <!-- Define the JPA transaction manager -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="vendorAdaptor" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+          parent="abstractVendorAdaptor">
+    </bean>
+    <bean id="abstractVendorAdaptor" abstract="true">
+        <property name="generateDdl" value="true" />
+        <property name="database"    value="${abstractVendorAdaptor.database}" />
+        <property name="showSql"     value="false"/>
+    </bean>
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource"          ref="primelogDataSource" />
+        <property name="jpaVendorAdapter"    ref="vendorAdaptor" />
+        <property name="packagesToScan"      value="com.primelog.cirrus"/>
+        <property name="jpaDialect">
+            <bean class="com.primelog.cirrus.common.configuration.orm.jpa.vendor.HibernateExtendedJpaDialect" />
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">none</prop>
+                <prop key="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</prop>
+                <prop key="hibernate.ejb.entitymanager_factory_name">cirrus-entitymanager</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+
+    <jdbc:embedded-database id="primelogDataSource" type="HSQL">
+<!--
+        <jdbc:script location="classpath:schema.sql"/>
+        <jdbc:script location="classpath:test-data.sql"/>
+-->
+    </jdbc:embedded-database>
+
+<!--
+    <bean id="primelogDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${primelogDataSource.driverClassName}" />
+        <property name="url" value="${primelogDataSource.url}" />
+        <property name="username" value="${primelogDataSource.username}" />
+        <property name="password" value="${primelogDataSource.password}" />
+    </bean>
+-->
+
+</beans>

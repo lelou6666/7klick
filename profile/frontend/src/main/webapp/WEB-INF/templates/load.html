@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <div class="row form-personalization"  th:fragment="loadDetailsFragment" xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:th="http://www.thymeleaf.org">
+        <div class="col-md-6">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label col-md-7" th:text="#{reference}"></label>
+
+                    <div class="col-md-5">
+                        <input class="form-control input-xs input-detail-form" type="text" th:value="${load.extReference}" disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-7" th:text="#{status}"></label>
+
+                    <div class="col-md-5">
+                        <input class="form-control input-xs input-detail-form" type="text" th:value="${load.getDescription()}" disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-7"  th:text="#{nr.of.purchased.activities}"/>
+
+                    <div class="col-md-5">
+                        <input class="form-control input-xs input-detail-form" type="text" th:value="${nrOfPurchasedActivities}" disabled="disabled"/>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+        <div class="col-md-6">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label col-md-7" th:text="#{departure}"/>
+
+                    <div class="col-md-5">
+                        <input id="etd" name="etd" class="form-control input-xs input-detail-form" type="text" th:value="${load.etd}" disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-7"  th:text="#{close.date}"/>
+
+                    <div class="col-md-5">
+                        <input class="form-control input-xs input-detail-form" type="text" th:value="${load.atd}"  disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-7" th:text="#{nr.of.customer.shipments}"/>
+
+                    <div class="col-md-5">
+                        <input class="form-control input-xs input-detail-form" type="text" th:value="${nrOfCustomerShipments}" disabled="disabled"/>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+    <input type="hidden" name="loadId" id="loadId" th:value="${load.id}"/>
+</div>

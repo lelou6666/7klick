@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<div th:fragment="detailsFragment" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="templates/load :: loadDetailsFragment"/>
+    <div th:replace="templates/purchasedactivity :: purchasedActivityDetailsFragment"/>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        renderAjaxTableNew();
+        /*]]>*/
+    </script>
+</div>

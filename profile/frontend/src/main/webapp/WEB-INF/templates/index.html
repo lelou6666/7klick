@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<!-- Infrastructure -->
+<head th:include="application :: headFragment"/>
+<link rel="stylesheet" th:href="@{/resources/css/application.css}"/>
+<style>
+    .form-field-configured {
+        text-decoration: line-through;
+        color:red;
+    }
+    .form-field-hidden {
+        display: none;
+    }
+</style>
+<body class="desktop-detected container fixed-header" style="font-size:12px">
+<header id="header" th:include="application :: breadCrumbFragment"/>
+<div th:replace="templates/modal-split :: modalSplitFragment"/>
+<!-- Infrastructure end -->
+<!-- MAIN PANEL -->
+<div id="main" role="main">
+    <!-- MAIN CONTENT -->
+    <div id="content">
+        <!-- widget grid -->
+        <section id="widget-grid" class="">
+            <div th:include="templates/search :: searchFragment"/>
+            <div th:include="templates/content :: contentFragment"/>
+        </section>
+    </div>
+</div>
+
+
+<!-- Infrastructure libraries -->
+<div th:replace="application :: libraryFragment"/>
+<!-- Infrastructure libraries END -->
+
+<!-- Page specific  -->
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var pagefunction = function() {
+        initViewContextState("form-personalisation_"+window.location.pathname, "form");
+        initViewContextState('DataTables_'+window.location.pathname, "datatable");
+    };
+
+    loadScript(/*[[@{/resources/js/load-planning.js}]]*/, function() {
+        pagefunction();
+    });
+
+    /*]]>*/
+</script>
+
+
+</body>
+
+</html>

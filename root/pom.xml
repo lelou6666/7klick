@@ -525,8 +525,4 @@
             </plugins>
         </pluginManagement>
     </build>
-<modules>
-    <module>../common</module>
-    <module>../profile</module>
-</modules>
 </project>

@@ -1,0 +1,51 @@
+<div class="row" th:fragment="registrationFragment2" xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+    <div class="col-md-12 col-sm-12">
+        <form class="reg-page">
+            <div class="reg-header">
+                <p>Är redan medlem ? Klicka för att <a href="page_login.html" class="color-green">Logga in</a> på ditt konto.</p>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Förnamn <span class="color-red">*</span></label>
+                    <input type="surname" class="form-control margin-bottom-20 input-sm"/>
+                </div>
+                <div class="col-sm-6">
+                    <label>Efternamn <span class="color-red">*</span></label>
+                    <input type="lastname" class="form-control margin-bottom-20 input-sm"/>
+                </div>
+            </div>
+
+            <label>Email <span class="color-red">*</span></label>
+            <input type="text" class="form-control margin-bottom-20 input-sm"/>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Lösenord <span class="color-red">*</span></label>
+                    <input type="password" class="form-control margin-bottom-20  input-sm"/>
+                </div>
+                <div class="col-sm-6">
+                    <label>Bekräfta lösenord <span class="color-red">*</span></label>
+                    <input type="password" class="form-control margin-bottom-20  input-sm"/>
+                </div>
+                <div class="col-sm-12">
+               <label>CV<span class="color-red">*</span></label>
+                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                    <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                    <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" name="..."/></span>
+                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label class="checkbox">
+                        <input type="checkbox"/>
+                        Jag godkänner <a href="page_terms.html" class="color-green">vilkoren för 7Klick</a>
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="panel-group acc-v1" id="accordion-1"  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-One">
+                    Inloggningsuppgifter
+                </a>
+            </h4>
+        </div>
+        <div id="collapse-One" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <form action="" id="sky-form1" class="sky-form" novalidate="novalidate">
+                    <fieldset>
+
+                        <section>
+                            <div class="row">
+                                <div class="col col-md-12">
+                                    <label class="input">
+                                        <input class="form-control input-sm" type="email" placeholder="Email"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <div class="col col-md-12">
+                                    <label class="input">
+                                        <input class="form-control input-sm" type="password" placeholder="Lösenord"/>
+                                    </label>
+                                </div>
+                            </div>
+                           </section>                    </fieldset>
+
+                    <footer>
+                        <div class="row">
+                            <div class="col-md-11">
+                                <button type="submit" class="btn-u btn-u-xs btn-green col-md-12">Logga in</button>
+                            </div>
+                        </div>
+                    </footer>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="note"><a href="#sky-form2" class="modal-opener">Glömt lösenord?</a></div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <button href="#" class="btn-u btn-u-xs btn-u-blue btn btn-block btn-xs btn-facebook-inversed">
+        <i class="fa fa-facebook"></i> Connect with Facebook
+    </button>
+    <button class="btn-u btn-u-xs btn-u-red btn btn-block btn-xs btn btn-block btn-googleplus-inversed">
+        <i class="fa fa-google-plus"></i> Connect with Google+
+    </button>
+    <button class="btn-u btn-u-xs btn-green btn btn-block btn-xs btn btn-block sevenklick-create-account">
+        Skapa konto
+    </button>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $(".sevenklick-create-account").on("click", function(){
+            $("#modalRegistration").modal("show");
+        });
+    });
+</script>

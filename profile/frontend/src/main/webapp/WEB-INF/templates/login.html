@@ -35,7 +35,7 @@
 
                     <footer>
                         <div class="row">
-                            <div class="col-md-11">
+                            <div class="col-md-12">
                                 <button type="submit" class="btn-u btn-u-xs btn-green col-md-12">Logga in</button>
                             </div>
                         </div>
@@ -50,21 +50,25 @@
             </div>
         </div>
     </div>
-    <button href="#" class="btn-u btn-u-xs btn-u-blue btn btn-block btn-xs btn-facebook-inversed">
-        <i class="fa fa-facebook"></i> Connect with Facebook
+    <button class="btn-u btn-u-xs btn-u-blue btn btn-block btn-xs btn btn-block sevenklick-create-account">
+        Bli medlem
     </button>
-    <button class="btn-u btn-u-xs btn-u-red btn btn-block btn-xs btn btn-block btn-googleplus-inversed">
-        <i class="fa fa-google-plus"></i> Connect with Google+
-    </button>
-    <button class="btn-u btn-u-xs btn-green btn btn-block btn-xs btn btn-block sevenklick-create-account">
-        Skapa konto
-    </button>
+
+    <div class="reg-block-header">
+        <p>Eller logga in med socialt nätverk</p>
+        <ul class="social-icons text-center">
+            <li><a class="rounded-x social_facebook" data-original-title="Facebook" href="#"></a></li>
+            <li><a class="rounded-x social_twitter" data-original-title="Twitter" href="#"></a></li>
+            <li><a class="rounded-x social_googleplus" data-original-title="Google Plus" href="#"></a></li>
+            <li><a class="rounded-x social_linkedin" data-original-title="Linkedin" href="#"></a></li>
+        </ul>
+    </div>
 
 </div>
 <script>
     $(document).ready(function(){
         $(".sevenklick-create-account").on("click", function(){
-            $("#modalRegistration").modal("show");
+            showRegistrationPopup();
         });
     });
 </script>

@@ -32,5 +32,9 @@ public class ViewportController extends BaseController {
     public String loginViewTemplate() throws IOException {
        return "templates/login";
     }
+    @RequestMapping(value = "/template/profile")
+    public String profileViewTemplate() throws IOException {
+        return "templates/profile";
+    }
 
 }

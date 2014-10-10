@@ -1,86 +1,15 @@
-<!DOCTYPE html>
-    <div class="row" xmlns="http://www.w3.org/1999/xhtml"
-         xmlns:th="http://www.thymeleaf.org" th:fragment="searchFragment" >
-        <article class="col-sm-12 col-md-12 col-lg-12" style="margin-top:17px;">
-            <form id="searchForm" class="smart-form">
-                <div class="row">
-                    <section class="col col-2">
-                        <label class="label" th:text="#{from.date}"/>
-                        <label class="input"> <i class="icon-append fa fa-calendar"></i>
-                            <input id="fromDate" name="fromDate" type="text"  class="input-xs datepickerRange" th:attr="data-dateformat=${localizedDatePatternWeb}, data-placeholder=${localizedDatePattern}" data-dateformat="m/d/y" placeholder="mm/dd/yy" size="9" th:value="${now}"  />
-                        </label>
-                    </section>
-                    <section class="col col-2">
-                        <label class="label" th:text="#{end.date}"/>
-                        <label class="input"> <i class="icon-append fa fa-calendar"></i>
-                            <input id="endDate" name="endDate" type="text"  class="input-xs datepickerRange" th:attr="data-dateformat=${localizedDatePatternWeb}, data-placeholder=${localizedDatePattern}" data-dateformat="m/d/y" placeholder="mm/dd/yy" size="9" th:value="${endDate}"  />
-                        </label>
-                    </section>
-                    <section class="col col-3">
-                        <label class="label" style="margin-bottom:3px">
-                            <div class="btn-group">
-
-                                <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"><span id="btnReferenceType">Load &nbsp;</span>Reference number &nbsp;<span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a id="load" href="javascript:setReferenceType('load')">Load</a>
-                                    </li>
-                                    <li>
-                                        <a id="pa" href="javascript:setReferenceType('pa')">Purchased Activity</a>
-                                    </li>
-                                    <li>
-                                        <a id="cs" href="javascript:setReferenceType('cs');">Customer Shipment</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </label>
-                        <label class="input"> <i class="icon-append fa fa-ticket"></i>
-                            <input type="text" name="referenceNumber" class="input-xs"/>
-                            <input type="hidden" id="referenceType" name="referenceType" value="load"/>
-                        </label>
-                    </section>
-                    <section class="col col-2">
-                        <section>
-                            <label class="label" th:text="#{site}"/>
-                            <label class="select">
-
-                                <select class="input-sm" name="site" style="height: 25px;">
-                                    <option th:each="code :${site}"
-                                            th:value="${{code}}"
-                                            th:text="${code}"
-                                            th:selected="${code == currentUserCountryCode}">
-                                    </option>
-                                </select>
-                                    <!--
-                                                            <c:forEach var="code" items="${site}">
-                                                                <option value="${code}" ${code== currentUserCountryCode ? 'selected' : ''}>${code}</option>
-                                                            </c:forEach>
-                                    -->
-
-                                <i style="box-shadow:none;top:8px"></i> </label>
-
-                        </section>
-
-                    </section>
-                    <section class="col col-2" >
-                        <label class="label" th:text="#{supplier}"/>
-                        <label class="input"><i class="icon-append glyphicon glyphicon-tower"></i>
-
-                            <input type="text" name="supplier" class="input-xs"/>
-                        </label>
-                    </section>
-
-
-
-                    <section class="col col-1">
-                        <label class="label">&nbsp;</label>
-                        <label class="input">
-                            <a href="javascript:reloadTree();" class="btn btn-primary btn-xs"><i class="fa fa-search"></i> Search</a>
-                        </label>
-                    </section>
-
-                </div>
-            </form>
-        </article>
+<div class="col-md-4 col-lg-4">
+    <label>Vad?</label> Titel, bransch, företag eller nyckelord
+    <div class="">
+        <input type="hidden" id="searchJobType" style="width:100%" title="" class="select2-offscreen" tabindex="-1"/>
     </div>
+    <!-- /input-group -->
+</div>
+<!-- /.col-lg-6 -->
+<div class="col-md-4 col-lg-4">
+    <label>Var?</label> Kommun, län eller område
+    <div class="">
+        <input type="hidden" id="searchJobLocation" style="width:100%" title="" class="select2-offscreen" tabindex="-1"/>
+    </div>
+    <!-- /input-group -->
+</div>

@@ -5,371 +5,162 @@
                      xmlns:th="http://www.thymeleaf.org"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
                          xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
-<head>
-    <title>7Klick</title>
+<head th:include="application :: headFragment"/>
 
-    <!-- Meta -->
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico"/>
+<body>
 
-    <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/css/style.css}"/>
-
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/line-icons/line-icons.css}"/>
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/font-awesome/css/font-awesome.min.css}"/>
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/flexslider/flexslider.css}"/>
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/bxslider/jquery.bxslider.css}"/>
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/fancybox/source/jquery.fancybox.css}"/>
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/revolution-slider/examples/rs-plugin/css/settings.css}"/>
-    <!-- CSS Pages Style -->
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/css/pages/page_one.css}"/>
-    <!-- CSS Theme -->
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/css/themes/default.css}" id="style_color"/>
-    <!-- CSS Customization -->
-    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/css/custom.css}"/>
-    <link th:href="@{~/common-web/resources/assets/jasny/css/jasny-bootstrap.min.css}" rel="stylesheet" media="screen"/>
-    <style>
-        .top-search-bar {
-            position: relative;
-            height: 100%;
-            background-color: #0ca7c6;
-            background-color: rgba(254, 255, 255, 0.94);
-            overflow: hidden;
-            z-index: 2;
-            padding-top: 5px;
-            padding-left: 7px;
-            margin-bottom: 28px;
-            padding-bottom: 5px;
-            top: -28px;
-            padding-right: 7px;
-        }
-    </style>
-</head>
-
-<body class="boxed-layout container header-fixed">
-<!--=== Style Switcher ===-->
 <div class="wrapper">
-    <!--=== Header ===-->
-    <div class="header">
-        <!-- Topbar -->
-        <div class="topbar">
-            <div class="container">
-                <!-- Topbar Navigation -->
-                <ul class="loginbar pull-right">
-                    <li>
-                        <i class="fa fa-globe"></i>
-                        <a>Languages</a>
-                        <ul class="lenguages">
-                            <li class="active">
-                                <a href="#">English <i class="fa fa-check"></i></a>
-                            </li>
-                            <li><a href="#">Spanish</a></li>
-                            <li><a href="#">Russian</a></li>
-                            <li><a href="#">German</a></li>
-                        </ul>
+<!--=== Header ===-->
+<div class="header">
+<!-- Topbar -->
+<div class="topbar">
+    <div class="container">
+        <!-- Topbar Navigation -->
+        <ul class="loginbar pull-right">
+            <li>
+                <i class="fa fa-globe"></i>
+                <a>Languages</a>
+                <ul class="lenguages">
+                    <li class="active">
+                        <a href="#">English <i class="fa fa-check"></i></a>
                     </li>
-                    <li class="topbar-devider"></li>
-                    <li><a href="page_faq.html">Help</a></li>
-                    <li class="topbar-devider"></li>
-                    <li>
-                        <a href="#" data-poload="template/login" tabindex="0" style="color:white" class="btn-u btn-u-xs btn-green popup-ajax" data-toggle="popover" data-trigger="click">Logga in</a>
-                    </li>
-                    <li>
-                        <a href="#" tabindex="0" style="color:white" class="btn-u btn-u-xs btn-u-dark sevenklick-create-account" onclick="showRegistrationPopup()">Bli medlem</a>
-                    </li>
+                    <li><a href="#">Spanish</a></li>
+                    <li><a href="#">Russian</a></li>
+                    <li><a href="#">German</a></li>
                 </ul>
-                <!-- End Topbar Navigation -->
-            </div>
-        </div>
-        <!-- End Topbar -->
+            </li>
+            <li class="topbar-devider"></li>
+            <li><a href="page_faq.html">Help</a></li>
+            <li class="topbar-devider"></li>
+            <li><a href="page_login.html">Login</a></li>
+        </ul>
+        <!-- End Topbar Navigation -->
+    </div>
+</div>
+<!-- End Topbar -->
 
-        <!-- Navbar -->
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header" style="top: -16px;position: relative">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">
-                        <img id="logo-header" th:src="@{~/common-web/resources/assets/img/sevenklick-logo.png}" alt="Logo"/>
-                    </a>
+<!-- Navbar -->
+<div class="navbar navbar-default" role="navigation">
+<div class="container">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="fa fa-bars"></span>
+    </button>
+    <a class="navbar-brand" href="index.html" style="top:-25px">
+        <img id="logo-header" alt="" src="/common-web/resources/assets/img/logo_7klick.png" style="
+    height: 43px;
+    width: 41px;
+"/>Klick
+    </a>
+</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+
+</div>
+</div>
+<!-- End Navbar -->
+</div>
+<!--=== End Header ===-->
+
+<!--=== Content Part ===-->
+<div class="container">
+<div class="row">
+    <div class="col-md-9">
+        <!-- Our Services -->
+        <div><h2></h2></div>
+        <div class="row margin-bottom-10">
+            <div class="col-md-4 col-sm-4">
+                <div class="servive-block servive-block-default">
+                    <i class="icon-custom icon-color-dark rounded-x fa fa-lightbulb-o"></i>
+                    <h2 class="heading-md">Informations text</h2>
+                    <p>Något som visualiserar att användaren är 7 klick från att finnas tillgänglig på arbetsmarknaden</p>
                 </div>
-                    <div class="job-img-inputs top-search-bar">
-                        <div class="row">
-                            <div class="col-sm-5 md-margin-bottom-10">
-                                <label>Vad?</label> Titel, bransch, företag eller nyckelord
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                <input type="text" id="searchJobType" class="form-control margin-bottom-20 input-sm" placeholder="Alla typer av jobb"/>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 md-margin-bottom-10">
-                                <label>Var?</label> Kommun, län eller område
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                    <input type="text" id="searchJobLocation" class="form-control margin-bottom-20 input-sm" placeholder="Alla platser"/>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 md-margin-bottom-10">
-                                <label>&nbsp;</label>
-                                <div class="input-group">
+            </div>
+            <div class="col-md-1 col-sm-1">&nbsp;</div>
+            <div class="col-md-4 col-sm-4">
+                <div class="">
+                    <div class="upload-cv-section">
 
-                                    <button type="button" id="searchButton" class="btn-u btn-block btn-u-blue btn-sm input-sm rounded"><i class="fa fa-search"></i><b> Sök</b> 4213 jobb</button>
+                        <h3>Ladda upp CV <span class="color-red">*</span><span class="fileinput-filename" ></span> </h3>
 
-                                </div>
-                            </div>
+                        <label class="fileinput fileinput-new input-group" data-provides="fileinput">
+                            <div class="form-control file-upload" data-trigger="fileinput" style="display: none">
+                                <i class="glyphicon glyphicon-file fileinput-exists"></i> </div>
+                                    <span class="input-group-addon btn btn-default btn-file" >
+                                        <span class="fileinput-new" >
+                                            Välj från dator &nbsp;<i class="fa fa-hdd-o"></i></span><span class="fileinput-exists">Ändra</span><input id="fileUpload" type="file" name="..."  accept=".docx, .pdf, .rtf, .txt"/></span>
+                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Ta bort</a>
+                        </label>
+                        <div class="btn-group">
+                            <a href="#" style="color:blue">
+                                <i class="fa fa-dropbox"></i> <span style="color:grey">Dropbox&nbsp;&nbsp;&nbsp;</span></a>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" style="color:red">
+                                <i class="fa fa-google-plus"></i><span style="color:grey">&nbsp;Google drive</span></a>
                         </div>
                     </div>
-            </div>
-        </div>
-        <!-- End Navbar -->
-    </div>
-    <!--=== End Header ===-->
+                    <hr/>
+                    <div class="signin-section">
+                        <h3>Välj inloggningssätt <span class="color-red">*</span></h3>
+                        <label class="input">
+                            <div class="btn-group">
+                                <a href="#" style="color:blue">
+                                    <i class="fa fa-linkedin"></i> <span style="color:grey">Linked in&nbsp;&nbsp;&nbsp;</span></a>
+                            </div>
+                            <div class="btn-group">
+                                <a href="#" style="color:red">
+                                    <i class="fa fa-google-plus"></i><span style="color:grey">&nbsp;Google drive</span></a>
+                            </div>
 
-    <!--=== Slider ===-->
-    <div class="tp-banner-container">
-        <div class="tp-banner">
-            <ul>
-                <!-- SLIDE -->
-                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000">
-                    <!-- MAIN IMAGE -->
-                    <img th:src="@{~/common-web/resources/assets/unify/img/sliders/1.jpg}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"/>
 
-                    <div class="tp-caption revolution-ch1 sft start"
-                        data-x="center"
-                        data-hoffset="0"
-                        data-y="100"
-                        data-speed="1500"
-                        data-start="500"
-                        data-easing="Back.easeInOut"
-                        data-endeasing="Power1.easeIn"
-                        data-endspeed="300">
-                        Sveriges nya arbetsplatsportal
+                        </label>
+
+
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <input type="text" class="form-control" placeholder="Email"/>
                     </div>
-
-                    <!-- LAYER -->
-                    <div class="tp-caption revolution-ch2 sft"
-                        data-x="center"
-                        data-hoffset="0"
-                        data-y="190"
-                        data-speed="1400"
-                        data-start="2000"
-                        data-easing="Power4.easeOut"
-                        data-endspeed="300"
-                        data-endeasing="Power1.easeIn"
-                        data-captionhidden="off"
-                        style="z-index: 6">
-                        Där arbetstagare och arbetsgivare möts<br/>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="text" class="form-control" placeholder="Password"/>
                     </div>
+                    <label class="checkbox">
+                        <input type="checkbox" checked="true"/>
+                        <p>Jag godkänner <a target="_blank" href="page_terms.html">7 Klicks regler och vilkor</a></p>
+                    </label>
 
-                    <!-- LAYER -->
-                    <div class="tp-caption sft"
-                        data-x="center"
-                        data-hoffset="0"
-                        data-y="310"
-                        data-speed="1600"
-                        data-start="2800"
-                        data-easing="Power4.easeOut"
-                        data-endspeed="300"
-                        data-endeasing="Power1.easeIn"
-                        data-captionhidden="off"
-                        style="z-index: 6">
-                        <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light" onclick="showRegistrationPopup()">Ladda upp CV</a>
-                    </div>
-                </li>
-                <!-- END SLIDE -->
-
-                <!-- SLIDE -->
-                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000">
-                    <!-- MAIN IMAGE -->
-                    <img th:src="@{~/common-web/resources/assets/unify/img/sliders/3.jpg}"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"/>
-
-                    <div class="tp-caption revolution-ch1 sft start"
-                        data-x="center"
-                        data-hoffset="0"
-                        data-y="100"
-                        data-speed="1500"
-                        data-start="500"
-                        data-easing="Back.easeInOut"
-                        data-endeasing="Power1.easeIn"
-                        data-endspeed="300">
-                        Över 5000+ kandidater
-                    </div>
-
-                    <!-- LAYER -->
-                    <div class="tp-caption revolution-ch2 sft"
-                        data-x="center"
-                        data-hoffset="0"
-                        data-y="190"
-                        data-speed="1400"
-                        data-start="2000"
-                        data-easing="Power4.easeOut"
-                        data-endspeed="300"
-                        data-endeasing="Power1.easeIn"
-                        data-captionhidden="off"
-                        style="z-index: 6">
-                        Preliminär driftstart Maj 2015 <br/>
-                        dock tar vi redan idag ta emot CV.
-                    </div>
-
-                    <!-- LAYER -->
-                    <div class="tp-caption sft"
-                        data-x="center"
-                        data-hoffset="0"
-                        data-y="310"
-                        data-speed="1600"
-                        data-start="2800"
-                        data-easing="Power4.easeOut"
-                        data-endspeed="300"
-                        data-endeasing="Power1.easeIn"
-                        data-captionhidden="off"
-                        style="z-index: 6">
-                        <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light" onclick="showRegistrationPopup()">Ladda upp CV</a>
-                    </div>
-                </li>
-                <!-- END SLIDE -->
-            </ul>
-            <div class="tp-bannertimer tp-bottom"></div>
-        </div>
-    </div>
-    <!--=== End Slider ===-->
-
-    <!--=== Purchase Block ===-->
-    <div class="purchase">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 animated fadeInLeft">
-                    <span>Donera till ett stipendium för en utgående student!</span>
-                    <p>Vi verkar för ett bättre jobbklimat för studenter som ska ut i arbetslivet. Därför vill vi belysa den student som Ni anser ha bäst förutsättningar för att lyckas efter sin examen.
-
-                        Att studenten skapar nätverk, antar extrajobb, engagerar sig i studentlivet, studerar en attraktiv utbildning etc. Allt som har en inverkan i hur intressant CV:t blir i en rekryteringsprocss hos er för nyutexaminerade studenter.
-
-                        Donationerna ska oavkortat gå till ett stipendium för den student som Ni anser ha bäst förutsättningar för jobb efter sin examen 2015.</p>
-                </div>
-                <div class="col-md-3 btn-buy animated fadeInRight">
-                    <a href="#" class="btn-u btn-u-lg" onclick="showRegistrationPopup()"><i class="fa fa-cloud-upload"></i> Ladda upp CV</a>
-                </div>
-            </div>
-        </div>
-    </div><!--/row-->
-    <!-- End Purchase Block -->
-
-    <!--=== Footer ===-->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 md-margin-bottom-40">
-                    <!-- About -->
-                    <div class="headline"><h2>About</h2></div>
-                    <p class="margin-bottom-25 md-margin-bottom-40">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
-                    <!-- End About -->
-
-                    <!-- Monthly Newsletter -->
-                    <div class="headline"><h2>Monthly Newsletter</h2></div>
-                    <p>Subscribe to our newsletter and stay up to date with the latest news and deals!</p>
-                    <form class="footer-subsribe">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Email Address"/>
-                            <span class="input-group-btn">
-                                <button class="btn-u" type="button">Subscribe</button>
-                            </span>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <button type="submit" class="btn-u btn-block">Register</button>
                         </div>
-                    </form>
-                    <!-- End Monthly Newsletter -->
-                </div><!--/col-md-4-->
-
-                <div class="col-md-4 md-margin-bottom-40">
-                    <!-- Recent Blogs -->
-                    <div class="posts">
-                        <div class="headline"><h2>Recent Blog Entries</h2></div>
-                        <dl class="dl-horizontal">
-                            <dt><a href="#"><img th:src="@{~/common-web/resources/assets/unify/img/sliders/elastislide/6.jpg}" alt="" /></a></dt>
-                            <dd>
-                                <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
-                            </dd>
-                        </dl>
-                        <dl class="dl-horizontal">
-                        <dt><a href="#"><img th:src="@{~/common-web/resources/assets/unify/img/sliders/elastislide/10.jpg}" alt="" /></a></dt>
-                            <dd>
-                                <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
-                            </dd>
-                        </dl>
-                        <dl class="dl-horizontal">
-                        <dt><a href="#"><img th:src="@{~/common-web/resources/assets/unify/img/sliders/elastislide/11.jpg}" alt="" /></a></dt>
-                            <dd>
-                                <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
-                            </dd>
-                        </dl>
                     </div>
-                    <!-- End Recent Blogs -->
-                </div><!--/col-md-4-->
-
-                <div class="col-md-4">
-                    <!-- Contact Us -->
-                    <div class="headline"><h2>Contact Us</h2></div>
-                    <address class="md-margin-bottom-40">
-                        25, Lorem Lis Street, Orange <br />
-                        California, US <br />
-                        Phone: 800 123 3456 <br />
-                        Fax: 800 123 3456 <br />
-                        Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
-                    </address>
-                    <!-- End Contact Us -->
-
-                    <!-- Social Links -->
-                    <div class="headline"><h2>Stay Connected</h2></div>
-                    <ul class="social-icons">
-                        <li><a href="#" data-original-title="Feed" class="social_rss"></a></li>
-                        <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
-                        <li><a href="#" data-original-title="Twitter" class="social_twitter"></a></li>
-                        <li><a href="#" data-original-title="Goole Plus" class="social_googleplus"></a></li>
-                        <li><a href="#" data-original-title="Pinterest" class="social_pintrest"></a></li>
-                        <li><a href="#" data-original-title="Linkedin" class="social_linkedin"></a></li>
-                        <li><a href="#" data-original-title="Vimeo" class="social_vimeo"></a></li>
-                    </ul>
-                    <!-- End Social Links -->
-                </div><!--/col-md-4-->
-            </div>
-        </div>
-    </div><!--/footer-->
-    <!--=== End Footer ===-->
-
-    <!--=== Copyright ===-->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>
-                        2014 &copy; Unify. ALL Rights Reserved.
-                        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <a href="index.html">
-                        <img class="pull-right" id="logo-footer" th:src="@{~/common-web/resources/assets/img/sevenklick-logo.png}" alt=""/>
-                    </a>
+                    </div>
                 </div>
             </div>
-        </div> 
-    </div><!--/copyright--> 
-    <!--=== End Copyright ===-->
+        </div>                <!-- End Our Services -->
 
+    </div><!--/col-md-9-->
+</div><!--/row-->
+
+</div><!--/container-->
+<!--=== End Content Part ===-->
 </div><!--/wrapper-->
 
 <!-- JS Global Compulsory -->			
 <script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/plugins/jquery-1.10.2.min.js}"></script>
 <script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/plugins/jquery-migrate-1.2.1.min.js}"></script>
 <script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/plugins/bootstrap/js/bootstrap.min.js}"></script>
-<!-- JS Implementing Plugins -->           
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" th:src="@{~/common-web/resources/assets/plugins/typeahead/typeahead.min.js}"></script>
+<script type="text/javascript" th:src="@{~/common-web/resources/assets/plugins/select2/js/select2.min.js}"></script>
+
+<script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/plugins/counter/waypoints.min.js}"></script>
+<script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/plugins/counter/jquery.counterup.min.js}"></script>
+
 <script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/plugins/back-to-top.js}"></script>
 <script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/plugins/flexslider/jquery.flexslider-min.js}"></script>
 <script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/plugins/fancybox/source/jquery.fancybox.pack.js}"></script>
@@ -390,12 +181,37 @@
             var e=$(this);
             e.unbind('click');
             $.get(e.data('poload'),function(d) {
+
                 e.popover({content: d,  html:"true", placement:"bottom", container:"body"}).popover('show');
+                $(".popover").css("z-index","1000000");
             });
         });
+
+
+        $('*[data-content-load]').bind('click',function() {
+            var e=$(this);
+            e.unbind('click');
+            $.get(e.data('content-load'),function(d) {
+                $("#main-content").html(d);
+            });
+        });
+
+        $("#searchJobType").select2({
+            placeholder:"t.ex. Marknadschef",
+            data:[{id:0,text:'Key Account Manager'},{id:1,text:'Java Utvecklare'},{id:2,text:'Senior Testledare'},{id:3,text:'Junior .NET utvecklare'},{id:4,text:'Gruppchef Lanstinget Örebro'}]
+        });
+
+        $("#searchJobLocation").select2({
+            placeholder:"t.ex. Stockholm",
+            data:[{id:0,text:'Arvika'},{id:1,text:'Båstad'},{id:2,text:'Linköping'},{id:3,text:'Malmö'},{id:4,text:'Östersund'}]
+        });
+        $("#fileUpload").on("change", function(){$('.fileinput-filename').text($(this).val().replace('C:\\fakepath\\',''))});
     });
     function showRegistrationPopup(){
         $("#modalRegistration").modal("show");
+    }
+    function mongo(){
+        $('#test').focus().trigger('click');
     }
     /*]]>*/
 </script>
@@ -403,8 +219,9 @@
 <!--[if lt IE 9]>
     <script th:src="@{~/common-web/resources/assets/unify/plugins/respond.js}"></script>
 <![endif]-->
- <div th:include="templates/modal :: modalFragment" class="modal fade in" id="modalRegistration"/>
+
 
 
 </body>
+<div th:include="templates/modal :: modalFragment" class="modal fade in" id="modalRegistration"/>
 </html>	

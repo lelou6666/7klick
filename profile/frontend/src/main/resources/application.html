@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headFragment">
+
+    <!-- Force latest IE rendering engine or ChromeFrame if installed -->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <title th:text="#{application.title}"/>
+    <!-- Meta -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/css/style.css}"/>
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/line-icons/line-icons.css}"/>
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/css/pages/profile.css}"/>
+
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/line-icons/line-icons.css}"/>
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/font-awesome/css/font-awesome.min.css}"/>
+
+    <link rel="stylesheet"
+          th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/font-awesome/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/flexslider/flexslider.css}"/>
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/bxslider/jquery.bxslider.css}"/>
+    <link rel="stylesheet"
+          th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/fancybox/source/jquery.fancybox.css}"/>
+    <link rel="stylesheet"
+          th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/revolution-slider/examples/rs-plugin/css/settings.css}"/>
+    <!-- CSS Pages Style -->
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/css/pages/page_one.css}"/>
+    <!-- CSS Theme -->
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/css/themes/default.css}" id="style_color"/>
+    <!-- CSS Customization -->
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/css/custom.css}"/>
+    <link th:href="@{//common-web.elasticbeanstalk.com/resources/assets/jasny/css/jasny-bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{//common-web.elasticbeanstalk.com/resources/assets/plugins/select2/css/select2.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/sky-forms/version-2.0.1/css/sky-forms.css}"/>
+    <link rel="stylesheet" th:href="@{//common-web.elasticbeanstalk.com/resources/assets/unify/plugins/sky-forms/version-2.0.1/css/custom-sky-forms.css}"/>
+
+    <style>
+        .content {
+            padding-top:49px;
+            padding-bottom:0px;
+        }
+        .reg-form {
+            padding-bottom: 30px;
+            position: relative;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+            margin-left: -0px;
+        }
+        .navbar-brand {
+            float: left;
+            padding: 0px;
+            font-size: 18px;
+            line-height: 20px;
+            height: 20px
+        }
+    </style>
+    <div id="modalLayer"
+         style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; background-color: white; opacity: 0.6; z-index: 200000;visibility: hidden;">
+        <div style="position:absolute;left: 42%;top: 44%;color:black">
+            <span>Processing request, please wait</span>
+
+            <div style="position:relative;color:black">
+                <div style="position: absolute;left: 38%;top: 10px;"><img
+                        th:src="@{//common-web.elasticbeanstalk.com/resources/includes/img/ajax-loader-small-orange.gif}"/></div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="cirrus-viewStateAdmin" th:value="${adminEnabled}"/>
+    <input type="hidden" id="serverInstance" th:value="${serverInstance}"/>
+    <input type="hidden" id="ticket" th:value="${ticket}"/>
+    <input type="hidden" id="localizedDatePatternWeb" th:value="${localizedDatePatternWeb}"/>
+    <input type="hidden" id="localizedDatePattern" th:value="${localizedDatePattern}"/>
+
+
+</head>
+
+<nav class="navbar navbar-default" role="navigation" th:fragment="navBarLoginFragment" >
+    <div class="container" style="margin-top: 10px;margin-bottom: 10px">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img id="logo-footer" th:src="@{//common-web.elasticbeanstalk.com/resources/assets/img/sevenklick-logo.png}" alt=""/></a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+            <div class="row">
+                <div class="col-md-2 col-lg-2 pull-right">
+
+                    <div>
+                        <a href="#" data-poload="template/login" tabindex="0" style="color:white" class="btn-u btn-u-xs btn-green popup-ajax" data-toggle="popover" data-trigger="click">Logga in</a>
+                        <a href="#" data-content-load="template/profile" tabindex="0" style="color:white" class="btn-u btn-u-xs btn-green content-ajax"  data-trigger="click">Min profil</a>
+                    </div>
+                    <!-- /input-group -->
+                </div>
+
+                <!-- /.col-lg-6 -->
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+</html>

@@ -109,11 +109,6 @@
                 </executions>
                 <dependencies>
                     <dependency>
-                        <groupId>com.oracle</groupId>
-                        <artifactId>ojdbc6</artifactId>
-                        <version>${com.oracle.version}</version>
-                    </dependency>
-                    <dependency>
                         <groupId>org.liquibase.ext</groupId>
                         <artifactId>liquibase-oracle</artifactId>
                         <version>${org.liquibase.ext.version}</version>

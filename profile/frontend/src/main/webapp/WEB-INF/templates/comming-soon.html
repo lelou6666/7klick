@@ -31,7 +31,7 @@
                 </ul>
             </li>
             <li class="topbar-devider"></li>
-            <li><a href="page_faq.html">Help</a></li>
+            <li><a href="#" data-content-load="template/profile">Min profil</a></li>
             <li class="topbar-devider"></li>
             <li><a href="page_login.html">Login</a></li>
         </ul>
@@ -50,7 +50,7 @@
         <span class="fa fa-bars"></span>
     </button>
     <a class="navbar-brand" href="index.html" style="top:-25px">
-        <img id="logo-header" alt="" src="/common-web/resources/assets/img/logo_7klick.png" style="
+        <img id="logo-header" alt="" src="/common-web/resources/assets/img/logo_7klick-2.png" style="
     height: 43px;
     width: 41px;
 "/>Klick
@@ -66,7 +66,7 @@
 <!--=== End Header ===-->
 
 <!--=== Content Part ===-->
-<div class="container">
+<div id="main-content" class="container">
 <div class="row">
     <div class="col-md-9">
         <!-- Our Services -->
@@ -77,6 +77,7 @@
                     <i class="icon-custom icon-color-dark rounded-x fa fa-lightbulb-o"></i>
                     <h2 class="heading-md">Informations text</h2>
                     <p>Något som visualiserar att användaren är 7 klick från att finnas tillgänglig på arbetsmarknaden</p>
+                    <img  alt="" src="/common-web/resources/assets/img/icon_covering.png"/>
                 </div>
             </div>
             <div class="col-md-1 col-sm-1">&nbsp;</div>
@@ -84,9 +85,10 @@
                 <div class="">
                     <div class="upload-cv-section">
 
-                        <h3>Ladda upp CV <span class="color-red">*</span><span class="fileinput-filename" ></span> </h3>
+                        <h3>Ladda upp CV <span class="color-red">*</span>
+                        <span class="filename-content">    <span class="fileinput-filename" style="font-size:13px"></span></span></h3>
 
-                        <label class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <label class="fileinput fileinput-new input-group" data-provides="fileinput" style="border-left:1px solid #ccc;">
                             <div class="form-control file-upload" data-trigger="fileinput" style="display: none">
                                 <i class="glyphicon glyphicon-file fileinput-exists"></i> </div>
                                     <span class="input-group-addon btn btn-default btn-file" >
@@ -181,7 +183,6 @@
             var e=$(this);
             e.unbind('click');
             $.get(e.data('poload'),function(d) {
-
                 e.popover({content: d,  html:"true", placement:"bottom", container:"body"}).popover('show');
                 $(".popover").css("z-index","1000000");
             });
@@ -205,7 +206,16 @@
             placeholder:"t.ex. Stockholm",
             data:[{id:0,text:'Arvika'},{id:1,text:'Båstad'},{id:2,text:'Linköping'},{id:3,text:'Malmö'},{id:4,text:'Östersund'}]
         });
-        $("#fileUpload").on("change", function(){$('.fileinput-filename').text($(this).val().replace('C:\\fakepath\\',''))});
+        $("#fileUpload").on("change", function(){
+            if($(this).val().length<1){
+                $('.filename-placeholder').hide();
+            }else{
+
+
+            $('.filename-placeholder').show();
+            $('.filename-content').html("<br/><span class='filename-placeholder' style='color:blue;font-size: 12px'>Filnamn:"+$(this).val().replace('C:\\fakepath\\','')+"</span>");
+            }
+        });
     });
     function showRegistrationPopup(){
         $("#modalRegistration").modal("show");

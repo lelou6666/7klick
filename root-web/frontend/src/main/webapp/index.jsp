@@ -18,11 +18,14 @@
     //File profile = new File("/opt/tomcat7/webapps/ROOT/profile.war");
 */
 
-    File warFile = new File("/opt/tomcat7/webapps/ROOT/common-web.war");
-    File dir = new File ("/opt/tomcat7/webapps");
-    boolean success = warFile.renameTo (new File (dir, warFile.getName ()));
-    File profile = new File("/opt/tomcat7/webapps/ROOT/profile.war");
-    success = warFile.renameTo (new File (dir, profile.getName ()));
+    File warFile = new File("/var/lib/tomcat7/webapps/ROOT/common-web.war");
+    File moveToDir = new File ("/var/lib/tomcat7/webapps");
+    boolean success = warFile.renameTo (new File (moveToDir, warFile.getName ()));
+    %>
+    <%=success %>
+    <%
+    File warProfile = new File("/var/lib/tomcat7/webapps/ROOT/profile.war");
+    success = warProfile.renameTo (new File (moveToDir, warProfile.getName ()));
     %>
     <%=success %>
 </head>

@@ -7,8 +7,6 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">    <!-- Enables the Spring MVC @Controller programming model -->
     <!-- Spring MVC configuration -->
     <import resource="classpath*:/META-INF/spring/web-mvc-context.xml"/>
-    <!-- Ticket configuration -->
-    <import resource="classpath*:/META-INF/spring/session-interception.xml"/>
     <!-- Components to support autowiring in frontend module-->
     <context:component-scan base-package="com.sevenklick.profile.frontend"/>
     <!-- Translation of application texts -->
@@ -26,6 +24,4 @@
         <property name="useCodeAsDefaultMessage" value="true"/>
         <property name="defaultEncoding" value="UTF-8" />
     </bean>
-    <!-- Thymeleaf configuration -->
-    <import resource="classpath*:/META-INF/spring/thymeleaf-context.xml"/>
 </beans>

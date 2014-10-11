@@ -1,0 +1,7 @@
+# Maven
+overlays/
+target/
+
+# IntelliJ
+.idea/
+*.iml

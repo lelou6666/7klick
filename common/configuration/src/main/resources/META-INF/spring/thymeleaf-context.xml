@@ -14,7 +14,7 @@
     <bean id="templateResolverClassLoader"
           class="org.thymeleaf.templateresolver.ClassLoaderTemplateResolver">
         <property name="order" value="2"/>
-        <property name="prefix" value="layouts/" />
+        <property name="prefix" value="/layouts/" />
         <property name="suffix" value=".html" />
         <property name="templateMode" value="HTML5" />
         <property name="characterEncoding" value="UTF-8"/>

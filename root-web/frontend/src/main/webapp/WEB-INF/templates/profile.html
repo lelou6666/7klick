@@ -1,0 +1,313 @@
+<!--=== Profile ===-->
+<div class="profile container" xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+<div class="row">
+<!--Left Sidebar-->
+<div class="profile">
+<div class="container content">
+<div class="row">
+<!--Left Sidebar-->
+
+<div class="col-md-3 md-margin-bottom-40">
+    <img class="img-responsive profile-img margin-bottom-20" src="/common-web/resources/assets/unify/img/testimonials/user.jpg" alt=""><a href="#">Byt profil bild</a></img>
+
+
+
+    <div class="margin-bottom-50"></div>
+
+    <!--Datepicker-->
+    <form action="" id="sky-form2" class="sky-form">
+        <div id="inline-start"></div>
+    </form>
+    <!--End Datepicker-->
+</div>
+<!--End Left Sidebar-->
+
+<div class="col-md-9">
+<!--Profile Body-->
+<div class="profile-body margin-bottom-20">
+<div class="tab-v1">
+<ul class="nav nav-justified nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#profile">Hantera profil</a></li>
+    <li><a data-toggle="tab" href="#manage-cv">Hantera CV</a></li>
+    <li><a data-toggle="tab" href="#password">Byt lösenord</a></li>
+
+    <li><a data-toggle="tab" href="#settings">Notifieringar</a></li>
+
+</ul>
+<div class="tab-content">
+<div id="profile" class="profile-edit tab-pane fade in active">
+    <h2 class="heading-md">Profilinställningar</h2>
+    <br/>
+    <dl class="dl-horizontal">
+        <dt><strong>Email</strong></dt>
+        <dd>
+            <span class="surname">pierre.petersson@gmail.com</span>
+                                            <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </span>
+        </dd>
+        <hr/>
+
+        <dt><strong>Förnamn</strong></dt>
+        <dd>
+            <span class="surname">Pierre</span>
+                                            <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </span>
+        </dd>
+        <hr/>
+        <dt><strong><span>Efternamn</span></strong></dt>
+        <dd>
+            <span class="lastname">Petersson</span>
+                                            <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                 </a>
+                                            </span>
+        </dd>
+        <hr/>
+        <dt><strong>Födelseår</strong></dt>
+        <dd>
+            <label class="select">
+                <select>
+                    <option value="0">1980</option>
+                    <option value="1">1981</option>
+                    <option value="2">1982</option>
+                    <option value="3">1983</option>
+                    <option value="4">1984</option>
+                </select>
+                <i></i>
+            </label>
+                                                        <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </span>
+
+        </dd>
+        <hr/>
+        <dt><strong>Telefonnummer </strong></dt>
+        <dd>
+           <span class="phone"> +46 722227453</span>
+                                            <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </span>
+        </dd>
+        <hr/>
+        <dt><strong>Address </strong></dt>
+        <dd>
+            Drottninggatan 73
+                                            <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </span>
+        </dd>
+        <hr/>
+        <dt><strong>Postnummer </strong></dt>
+        <dd>
+            11136
+                                            <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </span>
+        </dd>
+
+        <hr/>
+        <dt><strong>Stad </strong></dt>
+        <dd>
+            Stockholm
+                                            <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </span>
+        </dd>
+
+    </dl>
+</div>
+<div id="manage-cv" class="profile-edit tab-pane fade">
+    <dt><strong>Personliga brev</strong></dt>
+    <dd>
+        <span class="personal-letter-name">Skriv eller kopiera och klistra in ditt personliga brev </span>
+                                            <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </span>
+    </dd>
+
+    <dt><strong></strong></dt>
+    <dd>
+        <section>
+            <label class="textarea">
+                <textarea rows="5" cols="80"></textarea>
+            </label>
+        </section>
+        <div class="button-group">
+            <button type="button" class="btn-u">Lägg till</button>
+            <button type="button" class="btn-u">Ladda upp</button>
+        </div>
+        <p>&nbsp;</p>
+        <div class="panel panel-sea margin-bottom-40">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-edit">Personliga brev</i></h3>
+            </div>
+            <table class="table table-striped table-condensed">
+                <thead>
+                <tr>
+                    <th>Namn</th>
+                    <th>Åtgärd</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Personlig brev - HM</td>
+                    <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Ta bort</button></td>
+                </tr>
+                <tr>
+                    <td>Personligt brev - Volvo</td>
+                    <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Ta bort</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </dd>
+    <hr/>
+    <dt><strong>Dina CV</strong></dt>
+    <dd>
+                                            <span>
+                                                <a class="pull-right" href="#">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </span>
+    </dd>
+
+    <dt><strong></strong></dt>
+    <dd>
+        <p>&nbsp;</p>
+        <div class="panel panel-sea margin-bottom-40">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-edit">CV:s</i></h3>
+            </div>
+            <table class="table table-striped table-condensed">
+                <thead>
+                <tr>
+                    <th>Namn</th>
+                    <th>Åtgärd</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>System Engineer</td>
+                    <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Ta bort</button></td>
+                </tr>
+                <tr>
+                    <td>Erfaren Java utvecklare</td>
+                    <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Ta bort</button></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="button-group">
+            <button type="button" class="btn-u">Ladda upp</button>
+        </div>
+
+    </dd>
+
+</div>
+<div id="password" class="profile-edit tab-pane fade">
+    <h2 class="heading-md">Hantera säkerhetsinställningar</h2>
+    <br/>
+    <form class="sky-form" id="sky-form4" action="" novalidate="novalidate">
+        <dl class="dl-horizontal">
+
+            <dt>Nuvarande lösenord</dt>
+            <dd>
+                <section>
+                    <label class="input">
+                        <i class="icon-append fa fa-key"></i>
+                        <input type="password" id="passwordExisting" placeholder="Nuvarande lösenord" name="password"/>
+                        <b class="tooltip tooltip-bottom-right">Ange ditt befintliga lösenord</b>
+                    </label>
+                </section>
+            </dd>
+
+            <dt>Ange nytt lösenord</dt>
+            <dd>
+                <section>
+                    <label class="input">
+                        <i class="icon-append fa fa-lock"></i>
+                        <input type="password" id="passwordNew" placeholder="Lösenord" name="password"/>
+                        <b class="tooltip tooltip-bottom-right">Ange ditt nya lösenord</b>
+                    </label>
+                </section>
+            </dd>
+            <dt>Bekräfta lösenord</dt>
+            <dd>
+                <section>
+                    <label class="input">
+                        <i class="icon-append fa fa-lock"></i>
+                        <input type="password" placeholder="Bekräfta nytt lösenord" name="passwordConfirm"/>
+                        <b class="tooltip tooltip-bottom-right">Bekräfta nytt lösenord</b>
+                    </label>
+                </section>
+            </dd>
+        </dl>
+
+        <button type="button" class="btn-u btn-u-default">Avbryt</button>
+        <button class="btn-u" type="submit">Spara</button>
+    </form>
+</div>
+
+
+
+<div id="settings" class="profile-edit tab-pane fade">
+    <h2 class="heading-md">Manage your Notifications.</h2>
+    <p>Below are the notifications you may manage.</p>
+    <br/>
+    <form class="sky-form" id="sky-form1" action="">
+        <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"/><i></i>Email notification</label>
+        <hr/>
+        <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"/><i></i>Send me email notification when a user comments on my blog</label>
+        <hr/>
+        <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"/><i></i>Send me email notification for the latest update</label>
+        <hr/>
+        <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"/><i></i>Send me email notification when a user sends me message</label>
+        <hr/>
+        <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"/><i></i>Receive our monthly newsletter</label>
+        <hr/>
+        <button type="button" class="btn-u btn-u-default">Reset</button>
+        <button class="btn-u" type="submit">Spara</button>
+    </form>
+</div>
+</div>
+</div>
+</div>
+<!--End Profile Body-->
+</div>
+</div><!--/end row-->
+</div><!--/container-->
+</div>
+</div>
+    <script th:inline="javascript">
+    /*<![CDATA[*/
+    jQuery(document).ready(function() {
+        App.init();
+        App.initCounter();
+        Datepicker.initDatepicker();
+    });
+    /*]]>*/
+</script>
+
+</div><!--/container-->
+<!--=== End Profile ===-->

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>root-web-root</artifactId>
+    <version>0-SNAPSHOT</version> <!-- Do not change! -->
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.7klick</groupId>
+        <artifactId>root-pom</artifactId>
+        <!-- Only a Nexus version, i.e. not 0-SNAPSHOT! -->
+        <version>0-SNAPSHOT</version>
+    </parent>
+
+    <modules>
+        <module>api</module>
+        <module>backend</module>
+        <module>frontend</module>        
+    </modules>
+
+    <properties>
+        <!-- Only a Nexus version, i.e. not 0-SNAPSHOT! -->
+        <cirrus.common.version>0-SNAPSHOT</cirrus.common.version>
+    </properties>
+    <profiles>
+        <profile>
+            <id>ci-server</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <inherited>false</inherited>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-plugin</artifactId>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <connectionUrl>${scm.server.url}:cirrus-load-planning.git</connectionUrl>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.7klick</groupId>
+                <artifactId>common-util</artifactId>
+                <version>${cirrus.common.version}</version>
+            </dependency>
+            <!-- To be removed common-api no java dependencies, Webservices should be use to interact between modules -->
+            <dependency>
+                <groupId>com.7klick</groupId>
+                <artifactId>root-web-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.7klick</groupId>
+                <artifactId>root-web-backend</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

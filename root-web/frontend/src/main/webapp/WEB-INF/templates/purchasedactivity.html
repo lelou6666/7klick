@@ -1,0 +1,132 @@
+<div th:fragment="purchasedActivityDetailsFragment" xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+    <div th:each="purchasedActivity : ${purchasedActivities}">    
+        <input type="hidden" th:name="${'pa-'+purchasedActivity.id}" th:id="${'pa-'+purchasedActivity.id}"/>
+        <div class="panel-group smart-accordion-default" th:id="${'paAcc-'+purchasedActivity.id}">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+               <h4 class="cirrus-panel-title"><a th:text="#{purchased.activity}+' '+|${purchasedActivity.waybillNo + ' '+purchasedActivity.logisticsServiceProvider}|" th:attr="data-parent=${'paAcc-'+purchasedActivity.id}" th:href="'javascript:openPopupWindow(\''+|@{~/primelog/search/waybill_search.jsp?forwardPage=waybill_detail.jsp}|+'&#38;wbId='+|${purchasedActivity.id}|+'\')'"> </a></h4>
+                </div>
+                <div th:id="${'collapse'+purchasedActivity.id}" class="panel-collapse collapse in">
+
+                    <div class="panel-body form-personalization">
+                        <form class="purchasedActivity personalize-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-7" for="pa-reference" th:text="#{reference.number}"/>
+
+                                            <div class="col-md-5">
+                                                <input class="form-control input-xs input-detail-form" id="pa-reference" name="pa-reference" type="text" th:value="${purchasedActivity.waybillNo}" disabled="disabled"/>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label class="control-label col-md-7" for="supplier" th:text="#{supplier}"/>
+                                            <div class="col-md-5">
+                                                <input class="form-control input-xs input-detail-form" id="supplier" name="supplier" type="text" th:value="${purchasedActivity.logisticsServiceProvider}" disabled="disabled"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-7" for="service" th:text="#{service}"/>
+                                            <div class="col-md-5">
+                                                <input id="service" class="form-control input-xs input-detail-form" type="text" th:value="${purchasedActivity.transportProduct}" disabled="disabled"/>
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="printDate" class="control-label col-md-7" th:text="#{departure.date}"/>
+
+                                            <div class="col-md-5">
+                                                <input id="printDate" class="form-control input-xs input-detail-form" type="text" th:value="${purchasedActivity.printDate}" disabled="disabled"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="totalWeight" class="control-label col-md-7" th:text="#{weight}"/>
+
+                                            <div class="col-md-5">
+                                                <input id="totalWeight" class="form-control input-xs input-detail-form" type="text" th:value="${purchasedActivity.totalWeight}" disabled="disabled"/>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="plannedCost" class="control-label col-md-7" th:text="#{planned.cost}"/>
+
+                                            <div class="col-md-5">
+                                                <input id="plannedCost" class="form-control input-xs input-detail-form" type="text" th:value="${purchasedActivity.plannedCost}" disabled="disabled"/>
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="consigneeCountryCode" class="control-label col-md-7" th:text="#{consignee.country.code}"/>
+
+                                            <div class="col-md-5">
+                                                <input id="consigneeCountryCode" class="form-control input-xs input-detail-form" type="text" th:value="${purchasedActivity.consigneeCountryCode}" disabled="disabled"/>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="senderCountryCode" class="control-label col-md-7" th:text="#{sender.country.code}"/>
+
+                                            <div class="col-md-5">
+                                                <input class="form-control input-xs input-detail-form" id="senderCountryCode" name="senderCountryCode" type="text" th:value="${purchasedActivity.senderCountryCode}"  disabled="disabled"/>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="distance" class="control-label col-md-7" th:text="#{distance}"/>
+
+                                            <div class="col-md-5">
+                                                <input id="distance" name="distance" class="form-control input-xs input-detail-form" type="text" th:value="${purchasedActivity.totalDistance}" disabled="disabled"/>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="totalVolume" class="control-label col-md-7" th:text="#{volume}"/>
+
+                                            <div class="col-md-5">
+                                                <input class="form-control input-xs input-detail-form" id="totalVolume" name="totalVolume" type="text" th:value="${purchasedActivity.totalVolume}"  disabled="disabled"/>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                                <br/>
+                            <div th:replace="templates/customershipments :: customerShipmentsFragment"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

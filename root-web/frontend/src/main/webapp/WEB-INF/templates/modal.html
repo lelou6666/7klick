@@ -1,0 +1,18 @@
+<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" th:fragment="modalFragment" xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Bli medlem </h4>
+        </div>
+        <div class="modal-body">
+            <div th:include="templates/reg2 :: registrationFragment2"/>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
+            <button type="button" class="btn btn-success">Skapa konto</button>
+        </div>
+    </div>
+</div>
+</div>

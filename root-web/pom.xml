@@ -19,7 +19,9 @@
     <modules>
         <module>api</module>
         <module>backend</module>
-        <module>frontend</module>        
+        <module>frontend</module>
+        <module>../common/web</module>
+        <module>../profile/frontend</module>
     </modules>
 
     <properties>

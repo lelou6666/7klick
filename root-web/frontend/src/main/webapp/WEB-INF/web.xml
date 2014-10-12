@@ -86,9 +86,11 @@
         <servlet-name>jaxws</servlet-name>
         <url-pattern>/profile-webservice</url-pattern>
     </servlet-mapping>
+<!--
     <listener>
         <listener-class>
             com.sevenklick.profile.frontend.ElasticBeanWarDeployListener
         </listener-class>
     </listener>
+-->
 </web-app>

@@ -73,37 +73,45 @@
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
             <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.9</version>
                 <executions>
                     <execution>
-                        <id>copy-resources</id>
-                        <!-- here the phase you need -->
+                        <id>copy</id>
                         <phase>validate</phase>
                         <goals>
-                            <goal>copy-resources</goal>
+                            <goal>copy</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.basedir}/target/ROOT</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>../../common/web/target</directory>
-                                    <includes>
-                                        <include>common-web.war</include>
-                                    </includes>
-                                </resource>
-                                <resource>
-                                    <directory>../../profile/frontend/target</directory>
-                                    <includes>
-                                        <include>profile.war</include>
-                                    </includes>
-                                </resource>
-
-                            </resources>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.7klick</groupId>
+                                    <artifactId>common-web</artifactId>
+                                    <version>0-SNAPSHOT</version>
+                                    <type>war</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/ROOT</outputDirectory>
+                                    <destFileName>common-web.war</destFileName>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.7klick</groupId>
+                                    <artifactId>profile-frontend</artifactId>
+                                    <version>0-SNAPSHOT</version>
+                                    <type>war</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/ROOT</outputDirectory>
+                                    <destFileName>profile.war</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${project.build.directory}/wars</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <!-- Oracle maven plugin for starting,stopping,deploying etc. to weblogic
                      Read here for more info: http://docs.oracle.com/cd/E24329_01/web.1211/e24368/maven.htm

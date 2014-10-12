@@ -9,7 +9,7 @@
 
     <parent>
         <groupId>com.7klick</groupId>
-        <artifactId>profile-root</artifactId>
+        <artifactId>root-web-root</artifactId>
         <version>0-SNAPSHOT</version> <!-- Do not change -->
     </parent>
 
@@ -44,7 +44,7 @@
 
         <dependency>
             <groupId>com.7klick</groupId>
-            <artifactId>profile-api</artifactId>
+            <artifactId>root-web-api</artifactId>
         </dependency>
 
         <!-- Spring -->

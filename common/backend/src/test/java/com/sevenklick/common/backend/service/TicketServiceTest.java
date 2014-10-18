@@ -3,7 +3,7 @@ package com.sevenklick.common.backend.service;
 import com.sevenklick.common.util.exception.NotAuthenticatedException;
 import com.sevenklick.common.util.exception.TicketNotValidException;
 import com.sevenklick.common.util.helpers.Base64Util;
-import com.sevenklick.common.api.domain.UserEntity;
+import com.sevenklick.common.backend.domain.UserEntity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

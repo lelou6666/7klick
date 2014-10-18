@@ -1,7 +1,7 @@
 package com.sevenklick.common.backend.service.impl;
 
 import com.sevenklick.common.util.exception.NotAuthenticatedException;
-import com.sevenklick.common.api.domain.UserEntity;
+import com.sevenklick.common.backend.domain.UserEntity;
 import com.sevenklick.common.backend.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

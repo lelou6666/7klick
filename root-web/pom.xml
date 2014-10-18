@@ -55,7 +55,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.7klick</groupId>
-                <artifactId>common-util</artifactId>
+                <artifactId>common-core</artifactId>
                 <version>${cirrus.common.version}</version>
             </dependency>
             <!-- To be removed common-api no java dependencies, Webservices should be use to interact between modules -->

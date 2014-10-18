@@ -2,7 +2,7 @@ package com.sevenklick.common.backend.service.impl;
 
 import com.google.gson.Gson;
 
-import com.sevenklick.common.api.domain.UserEntity;
+import com.sevenklick.common.backend.domain.UserEntity;
 import com.sevenklick.common.backend.service.TicketService;
 import com.sevenklick.common.backend.service.UserService;
 import com.sevenklick.common.util.exception.NotAuthenticatedException;

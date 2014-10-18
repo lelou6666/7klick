@@ -1,0 +1,28 @@
+<div class="panel panel-default" th:fragment="customerShipmentsFragment" xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+    <div class="panel-heading">
+        <h4 class="cirrus-panel-title"><a data-toggle="collapse"  th:text="#{customer.shipments}" th:href="${'#panelCustomerShipments'+purchasedActivity.id}" class="collapsed"> <i class="fa fa-lg fa-angle-down pull-right"></i> <i class="fa fa-lg fa-angle-up pull-right"></i> </a></h4>
+    </div>
+    <div th:id="${'panelCustomerShipments'+purchasedActivity.id}" class="panel-collapse collapse in">
+        <div class="panel-body no-padding">
+            <table  name="customerShipments" class="table table-bordered table-condensed dTableAjax" data-search-enabled="false" data-title="Additional Fees" data-json-root-element="customershipments" th:attr="data-json-url=${'/load-planning/cirrus/v1/loadplanning/viewport/customershipments.json?id='+purchasedActivity.id}, data-configuration-mode=${adminEnabled}" data-editor-update-url="/load-planning/cirrus/v1/loadplanning/viewport/update/customershipments.json"
+                    data-link-url="/primelog/search/waybill_search.jsp?forwardPage=waybill_detail.jsp"
+                    data-link-url-param="wbId" data-cell-id-field="id" data-on-edit-function="distanceUnloadingSequenceEdited">
+                <thead>
+                <tr>
+                    <th data-mapped-to="waybillNo" th:text="#{reference.number}"/>
+                    <th data-mapped-to="totalPackages" th:text="#{packages}"/>
+                    <th data-mapped-to="totalWeight" th:text="#{weight}"/>
+                    <th data-mapped-to="totalVolume" th:text="#{volume}"/>
+                    <th data-mapped-to="receiverName" th:text="#{delivery.name}"/>
+                    <th data-mapped-to="consigneeCinId" th:text="#{consignee.id}"/>
+                    <th data-mapped-to="receiverCountryCode" th:text="#{country.code}"/>
+                    <th data-mapped-to="unloadingSequence" data-editable="true" th:text="#{unloading.sequence}"/>
+                    <th data-mapped-to="distance" data-editable="true" th:text="#{distance}"/>
+                    <th data-mapped-to="orderCost" data-editable="true" th:text="#{order.cost}"/>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>

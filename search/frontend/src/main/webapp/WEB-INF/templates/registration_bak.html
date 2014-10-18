@@ -1,0 +1,93 @@
+<div class="container reg-form" th:fragment="registrationFragment" xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+
+    <div class="row" >
+        <!--Reg Block-->
+        <div class="reg-block col-md-12">
+            <div class="tab-pane fade active in" id="profile-1">
+                <form action="" id="sky-form1" class="sky-form" novalidate="novalidate">
+                    <fieldset>
+
+                        <div class="row">
+                            <section class="col col-6">
+                                <h2>Bifoga ditt CV <span class="color-red">*</span></h2>
+                                <div class="btn-group">
+                                    <button type="button" class="btn-u btn-u-xs rounded btn-u-yellow" style="margin-left:3px" onclick="mongo()">
+                                        <i class="fa fa-google-plus"></i>
+                                        Välj från dator &nbsp;<i class="fa fa-hdd-o"></i>
+                                    </button>
+                                    <button type="button" class="btn-u btn-u-xs rounded btn-u-blue" style="margin-left:3px">
+                                        <i class="fa fa-dropbox"></i>
+                                        Välj från Dropbox
+                                    </button>
+                                    <button type="button" class="btn-u btn-u-xs rounded btn-u-red" style="margin-left:3px">
+                                        <i class="fa fa-google-plus"></i>
+                                        Välj från Google Drive
+                                    </button>
+                                </div>
+
+
+                            </section>
+                            </div>
+                        <div class="row">
+                            <section class="col col-6">
+
+                                <label class="label">Vi godkänner .DOCX,.DOC, .RTF,.TXT, .PDF, max 500 kb</label>
+                                <label class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                    <div class="form-control" data-trigger="fileinput">
+                                        <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                                    <span class="input-group-addon btn btn-default btn-file">
+                                        <span class="fileinput-new">
+                                            Välj från dator &nbsp;<i class="fa fa-hdd-o"></i></span><span class="fileinput-exists">Ändra</span><input id="test" type="file" name="..."/></span>
+                                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Ta bort</a>
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-6">
+                                <h2>Välj inloggningssätt <span class="color-red">*</span></h2>
+                                <label class="input">
+                                    <button type="button" class="btn-u btn-u-dark-blue">
+                                        <i class="fa fa-linkedin"></i>
+                                        Logga in med Linked in
+                                    </button>
+                                    <button type="button" class="btn-u btn-u-red col-md-5">
+                                        <i class="fa fa-google-plus"></i>
+                                        Logga in med Google
+                                    </button>
+
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-3">
+                                <h2>Skapa egen inlogging</h2>
+                                <label class="label">E-postadress(blir ditt användarnamn)</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-envelope"></i>
+                                    <input type="email" name="email" placeholder="E-postadress"/>
+                                </label>
+                            </section>
+                            <section class="col col-3">
+                                <h2>&nbsp;</h2>
+                                <label class="label">Lösenord</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-lock"></i>
+                                    <input type="password" name="password" placeholder="Lösenord"/>
+                                </label>
+                            </section>
+
+                        </div>
+                    </fieldset>
+
+
+                    <footer>
+
+                        <button type="submit" class="btn-u pull-right" >Spara</button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--End Reg Block-->
+</div>

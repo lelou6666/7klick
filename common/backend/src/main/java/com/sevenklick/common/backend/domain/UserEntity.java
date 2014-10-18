@@ -1,4 +1,4 @@
-package com.sevenklick.common.api.domain;
+package com.sevenklick.common.backend.domain;
 
 /**
  * Created by pierre.petersson on 03/10/2014.

@@ -18,10 +18,9 @@
 
     <modules>
         <module>web</module>
-        <module>api</module>
         <module>backend</module>
         <module>configuration</module>
-        <module>util</module>
+        <module>core</module>
     </modules>
 
     <profiles>
@@ -51,7 +50,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.7klick</groupId>
-                <artifactId>common-api</artifactId>
+                <artifactId>common-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -66,15 +65,9 @@
             </dependency>
             <dependency>
                 <groupId>com.7klick</groupId>
-                <artifactId>common-util</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.7klick</groupId>
                 <artifactId>common-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>

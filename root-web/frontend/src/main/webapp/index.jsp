@@ -25,9 +25,11 @@
     <%=success %>
     <%
         // New location to be redirected
+/*
         String site = new String("http://7klick.se/");
         response.setStatus(response.SC_MOVED_TEMPORARILY);
         response.setHeader("Location", site);
+*/
     %>
 </head>
 <body>

@@ -64,6 +64,7 @@ public class BaseController {
         if(ContextHandler.get()==null){
             String pattern = getLocale().toLocalizedPattern();
             model.addAttribute("localizedDatePattern",pattern );
+            model.addAttribute("ticket", servletWebRequest.getParameter("ticket"));
             model.addAttribute("adminEnabled", Boolean.FALSE);
             model.addAttribute("localizedDatePatternWeb", pattern.toLowerCase().replace("yy", "y"));
         }else {

@@ -9,7 +9,7 @@
     -->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
+            <mvc:mapping path="/secured/**"/>
             <mvc:exclude-mapping path="/resources/**"/>
             <mvc:exclude-mapping path="/soap/**"/>
             <mvc:exclude-mapping path="/rest/**"/>

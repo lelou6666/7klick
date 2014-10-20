@@ -22,16 +22,13 @@ public class ViewportController extends BaseController {
 
     @RequestMapping
     public  String init(ModelMap model, WebRequest request)  {
-        model.addAttribute("now", CirrusDateUtil.getLocalizedDateFormatForContext().format(CirrusDateUtil.getFirstDateInPreviousMonth()));
-        model.addAttribute("endDate",CirrusDateUtil.getLocalizedDateFormatForContext().format(CirrusDateUtil.getLastDateInPreviousMonth()));
-        model.addAttribute("currentUserCountryCode", ContextHandler.get().getCountryCode());
         return "templates/comming-soon";
     }
     @RequestMapping(value = "/template/login")
     public String loginViewTemplate() throws IOException {
        return "templates/login";
     }
-    @RequestMapping(value = "/template/profile")
+    @RequestMapping(value = "/secured/template/profile")
     public String profileViewTemplate() throws IOException {
         return "templates/profile";
     }

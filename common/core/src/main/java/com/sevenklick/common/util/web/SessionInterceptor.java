@@ -34,12 +34,8 @@ public class SessionInterceptor implements HandlerInterceptor  {
                     String ticketCleanup[] = ticket.split(",");
                     ticket = ticketCleanup[0];
                 }
-                request.getSession().setAttribute("ticket", ticket);
-            } else if (request.getSession().getAttribute("ticket") == null) {
-                ticket = request.getParameter("ticket");
-                request.getSession().setAttribute("ticket", ticket);
             } else {
-                ticket = request.getSession().getAttribute("ticket").toString();
+                ticket = request.getParameter("ticket");
             }
             logger.debug("Prehandle: ticket=" + ticket);
             Context context = new Context(ticket);

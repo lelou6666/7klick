@@ -31,7 +31,7 @@
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>
-                    <li><a href="#" data-content-load="template/profile">Min profil</a></li>
+                    <li><a href="#" data-content-load="secured/template/profile">Min profil</a></li>
                     <li class="topbar-devider"></li>
                     <li><a href="page_login.html">Login</a></li>
                 </ul>
@@ -181,6 +181,9 @@
         App.init();
         App.initFancybox();
         Index.initRevolutionSlider();
+        $.ajaxSetup({
+            data:{"ticket": $("#ticket").val()}
+        });
         $('*[data-poload]').bind('click',function() {
             var e=$(this);
             e.unbind('click');

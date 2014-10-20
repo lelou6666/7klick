@@ -83,6 +83,7 @@
                     <div class="col-md-1 col-sm-1">&nbsp;</div>
                     <div class="col-md-4 col-sm-4">
                         <div class="">
+                            <form id="fileCVUpload" enctype="multipart/form-data" method="post" action="uploadFile">
                             <div class="upload-cv-section">
 
                                 <h3>Ladda upp CV <span class="color-red">*</span>
@@ -93,7 +94,9 @@
                                         <i class="glyphicon glyphicon-file fileinput-exists"></i> </div>
                                     <span class="input-group-addon btn btn-default btn-file" >
                                         <span class="fileinput-new" >
-                                            Välj från dator &nbsp;<i class="fa fa-hdd-o"></i></span><span class="fileinput-exists">Ändra</span><input id="fileUpload" type="file" name="..."  accept=".docx, .pdf, .rtf, .txt"/></span>
+                                            Välj från dator &nbsp;<i class="fa fa-hdd-o"></i></span><span class="fileinput-exists">Ändra</span>
+
+                                        <input id="fileUpload" type="file" name="file"  accept=".docx, .pdf, .rtf, .txt"/></span>
                                     <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Ta bort</a>
                                 </label>
                                 <div class="btn-group">
@@ -104,6 +107,7 @@
                                     <a href="#" style="color:red">
                                         <i class="fa fa-google-plus"></i><span style="color:grey">&nbsp;Google drive</span></a>
                                 </div>
+
                             </div>
                             <hr/>
                             <div class="signin-section">
@@ -137,10 +141,12 @@
 
                                 <div class="row">
                                     <div class="col-md-10 col-md-offset-1">
-                                        <button type="submit" class="btn-u btn-block">Register</button>
+                                        <button id="btnsubmit" type="submit" class="btn-u btn-block">Register</button>
                                     </div>
                                 </div>
+
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>                <!-- End Our Services -->
@@ -173,7 +179,7 @@
 <script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/js/app.js}"></script>
 <script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/js/pages/index.js}"></script>
 <script type="text/javascript" th:src="@{~/common-web/resources/assets/plugins/jquery.crossdomain/jquery.crossdomain.ajax.js}"></script>
-
+<script type="text/javascript" th:src="@{~/common-web/resources/assets/unify/plugins/scrollbar/src/perfect-scrollbar.js}"></script>
 <script th:src="@{~/common-web/resources/assets/jasny/js/jasny-bootstrap.min.js}"></script>
 <script th:inline="javascript">
     /*<![CDATA[*/
@@ -228,7 +234,23 @@
     function mongo(){
         $('#test').focus().trigger('click');
     }
-
+    $("#btnsubmit").click( function() {
+        var formData = new FormData($('#fileCVUpload')[0]);
+        $.ajax({
+            url: 'uploadFile',
+            data: formData,
+            async: false,
+            contentType: false,
+            processData: false,
+            cache: false,
+            type: 'POST',
+            success: function(data)
+            {
+                $("#main-content").html(data);
+            },
+        });
+        return false;
+    });
     /*]]>*/
 </script>
 

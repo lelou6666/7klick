@@ -68,7 +68,7 @@
     <!--=== Content Part ===-->
     <div id="main-content" class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <!-- Our Services -->
                 <div><h2></h2></div>
                 <div class="row margin-bottom-10">
@@ -80,75 +80,187 @@
                             <img  alt="" src="/common-web/resources/assets/img/icon_covering.png"/>
                         </div>
                     </div>
-                    <div class="col-md-1 col-sm-1">&nbsp;</div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="">
-                            <form id="fileCVUpload" enctype="multipart/form-data" method="post" action="uploadFile">
-                            <div class="upload-cv-section">
+                    <form id="fileCVUpload" enctype="multipart/form-data" method="post" action="uploadFile">
+                    <div class="col-md-8">
+                        <p class="col-md-offset-5" id="step-progress" style="opacity: 0"><span class="badge rounded-4x badge-u step-counter">3</span> steg kvar från att ditt CV finns på arbetmarknaden</p>
+                        <ul class="timeline-v2">
+                            <li>
+                                <time class="cbp_tmtime" datetime=""><span>Välj skola</span> <span>Steg 1</span></time>
+                                <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-one"></i>
+                                <div class="cbp_tmlabel step-one-user" >
+                                    <h3>Välj skola <span class="color-red">*</span></h3>
+                                    <div class="row">
 
-                                <h3>Ladda upp CV <span class="color-red">*</span>
-                                    <span class="filename-content">    <span class="fileinput-filename" style="font-size:13px"></span></span></h3>
+                                        <div class="col-md-12">
+                                            <div class="school-section">
+                                                <div class="input-group margin-bottom-20">
+                                                    <span class="input-group-addon"><i class="fa fa-mortar-board"></i></span>
+                                                    <select id="school" name="school" class="form-control">
+                                                        <option value="-1">Välj skola</option>
+                                                        <option value="0">Jag har ingen examen</option>
+                                                        <option value="1">Jag har examen från annan skola</option>
+                                                        <option value="2">    Jag har examen från annan skola</option>
+                                                        <option value="3">Beckmans Designhögskola</option>
+                                                        <option value="4">Berghs School of Communications</option>
+                                                        <option value="5">Blekinge tekniska högskola</option>
+                                                        <option value="6">Chalmers tekniska högskola</option>
+                                                        <option value="7">Dans- och cirkushögskolan</option>
+                                                        <option value="8">Ersta Sköndal högskola</option>
+                                                        <option value="9">Förbundet S:t Lukas utbildningsinstitut</option>
+                                                        <option value="10">Försvarshögskolan</option>
+                                                        <option value="11">Gammelkroppa skogsskola</option>
+                                                        <option value="12">Gymnastik- och idrottshögskolan</option>
+                                                        <option value="13">Göteborgs universitet</option>
+                                                        <option value="14">Handelshögskolan i Stockholm</option>
+                                                        <option value="15">Hyper Island</option>
+                                                        <option value="16">Högskolan Dalarna</option>
+                                                        <option value="17">Högskolan Ericastiftelsen</option>
+                                                        <option value="18">Högskolan Evidens</option>
+                                                        <option value="19">Högskolan i Borås</option>
+                                                        <option value="20">Högskolan i Gävle</option>
+                                                        <option value="21">Högskolan i Halmstad</option>
+                                                        <option value="22">Högskolan i Jönköping</option>
+                                                        <option value="23">Högskolan i Skövde</option>
+                                                        <option value="24">Högskolan Kristianstad</option>
+                                                        <option value="25">Högskolan Väst</option>
+                                                        <option value="26">Johannelunds teologiska högskola</option>
+                                                        <option value="27">Karlstads universitet</option>
+                                                        <option value="28">Karolinska institutet</option>
+                                                        <option value="29">Konstfack</option>
+                                                        <option value="30">Kungl. Konsthögskolan</option>
+                                                        <option value="31">Kungl. Musikhögskolan i Stockholm</option>
+                                                        <option value="32">Kungl. Tekniska högskolan (KTH)</option>
+                                                        <option value="33">Linköpings universitet</option>
+                                                        <option value="34">Linnéuniversitetet</option>
+                                                        <option value="35">Luleå tekniska universitet</option>
+                                                        <option value="36">Lunds universitet</option>
+                                                        <option value="37">Malmö högskola</option>
+                                                        <option value="38">Mittuniversitetet</option>
+                                                        <option value="39">Mälardalens högskola</option>
+                                                        <option value="40">Newmaninstitutet</option>
+                                                        <option value="41">Operahögskolan i Stockholm</option>
+                                                        <option value="42">Röda Korsets Högskola</option>
+                                                        <option value="43">Sophiahemmet Högskola</option>
+                                                        <option value="44">Stockholms Akademi för Psykoterapiutbildning</option>
+                                                        <option value="45">Stockholms dramatiska högskola</option>
+                                                        <option value="46">Stockholms konstnärliga högskola</option>
+                                                        <option value="47">Stockholms Musikpedagogiska Institut</option>
+                                                        <option value="48">Stockholms universitet</option>
+                                                        <option value="49">Svenska Institutet för Kognitiv Psykoterapi</option>
+                                                        <option value="50">Sveriges lantbruksuniversitet, SLU</option>
+                                                        <option value="51">Södertörns högskola</option>
+                                                        <option value="52">Teologiska Högskolan, Stockholm</option>
+                                                        <option value="53">Umeå universitet</option>
+                                                        <option value="54">Uppsala universitet</option>
+                                                        <option value="55">Örebro Teologiska Högskola</option>
+                                                        <option value="56">Örebro universitet</option>
+                                                    </select>
 
-                                <label class="fileinput fileinput-new input-group" data-provides="fileinput" style="border-left:1px solid #ccc;">
-                                    <div class="form-control file-upload" data-trigger="fileinput" style="display: none">
-                                        <i class="glyphicon glyphicon-file fileinput-exists"></i> </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <time class="cbp_tmtime" datetime=""><span>Ladda upp CV</span> <span>Steg 2</span></time>
+                                <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-two"></i>
+                                <div class="cbp_tmlabel step-two-user" style="opacity: 0.2;">
+                                    <h3>Ladda upp CV <span class="color-red">*</span>
+                                        <span class="filename-content">    <span class="fileinput-filename" style="font-size:13px"></span></span></h3>
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="upload-cv-section">
+                                                    <label class="fileinput fileinput-new input-group" data-provides="fileinput" style="border-left:1px solid #ccc;">
+                                                    <div class="form-control file-upload" data-trigger="fileinput" style="display: none">
+                                                        <i class="glyphicon glyphicon-file fileinput-exists"></i> </div>
                                     <span class="input-group-addon btn btn-default btn-file" >
                                         <span class="fileinput-new" >
                                             Välj från dator &nbsp;<i class="fa fa-hdd-o"></i></span><span class="fileinput-exists">Ändra</span>
 
                                         <input id="fileUpload" type="file" name="file"  accept=".docx, .pdf, .rtf, .txt"/></span>
-                                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Ta bort</a>
-                                </label>
-                                <div class="btn-group">
-                                    <a href="#" style="color:blue">
-                                        <i class="fa fa-dropbox"></i> <span style="color:grey">Dropbox&nbsp;&nbsp;&nbsp;</span></a>
-                                </div>
-                                <div class="btn-group">
-                                    <a href="#" style="color:red">
-                                        <i class="fa fa-google-plus"></i><span style="color:grey">&nbsp;Google drive</span></a>
-                                </div>
+                                                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Ta bort</a>
+                                                </label>
+                                                <p>Eller ladda upp från</p>
+                                                <div class="btn-group">
+                                                    <a href="#" style="color:blue">
+                                                        <i class="fa fa-dropbox"></i> <span style="color:grey">Dropbox&nbsp;&nbsp;&nbsp;</span></a>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <a href="#" style="color:red">
+                                                        <i class="fa fa-google-plus"></i><span style="color:grey">&nbsp;Google drive</span></a>
+                                                </div>
 
-                            </div>
-                            <hr/>
-                            <div class="signin-section">
-                                <h3>Välj inloggningssätt <span class="color-red">*</span></h3>
-                                <label class="input">
-                                    <div class="btn-group">
-                                        <a href="#" style="color:blue">
-                                            <i class="fa fa-linkedin"></i> <span style="color:grey">Linked in&nbsp;&nbsp;&nbsp;</span></a>
-                                    </div>
-                                    <div class="btn-group">
-                                        <a href="#" style="color:red">
-                                            <i class="fa fa-google-plus"></i><span style="color:grey">&nbsp;Google drive</span></a>
-                                    </div>
+                                            </div>
 
-
-                                </label>
-
-
-                                <div class="input-group margin-bottom-20">
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input type="text" class="form-control" placeholder="Email"/>
-                                </div>
-                                <div class="input-group margin-bottom-20">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="text" class="form-control" placeholder="Password"/>
-                                </div>
-                                <label class="checkbox">
-                                    <input type="checkbox" checked="true"/>
-                                    <p>Jag godkänner <a target="_blank" href="page_terms.html">7 Klicks regler och vilkor</a></p>
-                                </label>
-
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <button id="btnsubmit" type="submit" class="btn-u btn-block">Register</button>
+                                        </div>
                                     </div>
                                 </div>
+                            </li>
+                            <li>
+                                <time class="cbp_tmtime" datetime=""><span>Logga in</span> <span>Steg 3</span></time>
+                                <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-three"></i>
+                                <div class="cbp_tmlabel step-three-user " style="opacity: 0.2;">
+                                    <h3>Logga in <span class="color-red">*</span></h3>
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="signin-section">
 
-                            </div>
-                            </form>
-                        </div>
+                                                <div class="input-group margin-bottom-20">
+                                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email"/>
+                                                </div>
+                                                <div class="input-group margin-bottom-20">
+                                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                    <input type="text" class="form-control" name="password" id="password" placeholder="Password"/>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-9 left">
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" checked="true"/>
+                                                            <p>Jag godkänner <a target="_blank" href="page_terms.html">7 Klicks regler och vilkor</a></p>
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="co
+                                                    l-md-3 pull-right">
+                                                        <button id="btnsubmit" type="submit" class="btn-u btn-block">Logga in</button>
+                                                    </div>
+                                                </div>
+                                                <p>Eller logga in med</p>
+
+                                                <label class="input">
+                                                    <div class="btn-group">
+                                                        <a href="#" style="color:blue">
+                                                            <i class="fa fa-linkedin"></i> <span style="color:grey">Linked in&nbsp;&nbsp;&nbsp;</span></a>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <a href="#" style="color:red">
+                                                            <i class="fa fa-google-plus"></i><span style="color:grey">&nbsp;Google mail</span></a>
+                                                    </div>
+
+
+                                                </label>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+
+                        </ul>
                     </div>
+                    </form>
                 </div>                <!-- End Our Services -->
 
             </div><!--/col-md-9-->
@@ -212,17 +324,45 @@
             placeholder:"t.ex. Marknadschef",
             data:[{id:0,text:'Key Account Manager'},{id:1,text:'Java Utvecklare'},{id:2,text:'Senior Testledare'},{id:3,text:'Junior .NET utvecklare'},{id:4,text:'Gruppchef Lanstinget Örebro'}]
         });
-
+        function updateStepProgress(stepNumber){
+            $(".step-counter").text(stepNumber);
+            $("#step-progress").fadeTo(1000, 1).fadeTo(3000,0.0);
+        }
         $("#searchJobLocation").select2({
             placeholder:"t.ex. Stockholm",
             data:[{id:0,text:'Arvika'},{id:1,text:'Båstad'},{id:2,text:'Linköping'},{id:3,text:'Malmö'},{id:4,text:'Östersund'}]
         });
+        $("#school").on("change", function(){
+            if($(this).val()==-1){
+                $( ".step-two-user" ).fadeTo( "slow" , 0.2);
+                $( ".step-three-user" ).fadeTo( "slow" , 0.2);
+                updateStepProgress(3);
+                $(".step-dot-one").addClass("step-dot-disabled");
+
+            }else{
+                $(".step-dot-one").removeClass("step-dot-disabled")
+                $( ".step-two-user" ).fadeTo( "slow" ,1 );
+                updateStepProgress(2);
+
+            }
+
+        });
         $("#fileUpload").on("change", function(){
             if($(this).val().length<1){
+                if($("#school").val()==-1){
+                    $( ".step-two-user" ).fadeTo( "slow" , 0.2);
+                }
+
                 $('.filename-placeholder').hide();
+                $( ".step-three-user" ).fadeTo( "slow" , 0.2);
+                updateStepProgress(2);
+                $(".step-dot-two").addClass("step-dot-disabled")
             }else{
-
-
+                $(".step-dot-two").removeClass("step-dot-disabled")
+                $(".step-two-user" ).fadeTo( "slow" , 1);
+                $(".step-three-user" ).fadeTo( "slow" , 1);
+                updateStepProgress(1);
+                $("#email").focus();
                 $('.filename-placeholder').show();
                 $('.filename-content').html("<br/><span class='filename-placeholder' style='color:blue;font-size: 12px'>Filnamn:"+$(this).val().replace('C:\\fakepath\\','')+"</span>");
             }
@@ -247,10 +387,12 @@
             success: function(data)
             {
                 $("#main-content").html(data);
-            },
+            }
         });
         return false;
     });
+    // Upload CV Sign in fade toggle
+    $( ".step-one-2-user input").on("focus", function(){ $( ".step-one-2-user" ).fadeTo( "slow" , 1)});
     /*]]>*/
 </script>
 

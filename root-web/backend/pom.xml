@@ -45,6 +45,7 @@
         <dependency>
             <groupId>com.7klick</groupId>
             <artifactId>root-web-api</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
         <!-- Spring -->

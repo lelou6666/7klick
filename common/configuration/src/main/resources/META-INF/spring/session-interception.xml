@@ -13,7 +13,7 @@
             <mvc:exclude-mapping path="/resources/**"/>
             <mvc:exclude-mapping path="/soap/**"/>
             <mvc:exclude-mapping path="/rest/**"/>
-            <bean class="com.sevenklick.common.util.web.SessionInterceptor" />
+            <bean class="com.sevenklick.common.core.web.SessionInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
 

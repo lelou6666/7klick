@@ -1,7 +1,7 @@
 package com.sevenklick.common.backend.facade;
 
-import com.sevenklick.common.util.exception.NotAuthenticatedException;
-import com.sevenklick.common.util.exception.TicketNotValidException;
+import com.sevenklick.common.core.exception.NotAuthenticatedException;
+import com.sevenklick.common.core.exception.TicketNotValidException;
 
 /**
  * Created by pierre.petersson on 3/10/14.

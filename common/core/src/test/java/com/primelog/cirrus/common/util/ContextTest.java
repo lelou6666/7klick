@@ -1,7 +1,7 @@
 package com.primelog.cirrus.common.util;
 
-import com.sevenklick.common.util.exception.TicketNotValidException;
-import com.sevenklick.common.util.domain.Context;
+import com.sevenklick.common.core.exception.TicketNotValidException;
+import com.sevenklick.common.core.domain.Context;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;

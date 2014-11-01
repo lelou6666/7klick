@@ -56,12 +56,6 @@
                 <artifactId>common-core</artifactId>
                 <version>${cirrus.common.version}</version>
             </dependency>
-            <!-- To be removed common-api no java dependencies, Webservices should be use to interact between modules -->
-            <dependency>
-                <groupId>com.7klick</groupId>
-                <artifactId>search-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.7klick</groupId>
                 <artifactId>search-backend</artifactId>

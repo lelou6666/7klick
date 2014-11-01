@@ -1,14 +1,13 @@
 package com.sevenklick.profile.frontend;
 
-import com.sevenklick.common.util.helpers.CirrusDateUtil;
-import com.sevenklick.common.util.helpers.ContextHandler;
-import com.sevenklick.common.util.web.BaseController;
+import com.sevenklick.common.core.helpers.CirrusDateUtil;
+import com.sevenklick.common.core.helpers.ContextHandler;
+import com.sevenklick.common.core.web.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 import java.io.IOException;

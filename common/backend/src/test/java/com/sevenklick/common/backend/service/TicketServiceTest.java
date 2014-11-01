@@ -1,8 +1,8 @@
 package com.sevenklick.common.backend.service;
 
-import com.sevenklick.common.util.exception.NotAuthenticatedException;
-import com.sevenklick.common.util.exception.TicketNotValidException;
-import com.sevenklick.common.util.helpers.Base64Util;
+import com.sevenklick.common.core.exception.NotAuthenticatedException;
+import com.sevenklick.common.core.exception.TicketNotValidException;
+import com.sevenklick.common.core.helpers.Base64Util;
 import com.sevenklick.common.backend.domain.UserEntity;
 import org.junit.Before;
 import org.junit.Test;

@@ -2,8 +2,8 @@ package com.sevenklick.common.backend.facade.impl;
 
 import com.sevenklick.common.backend.facade.TicketFacade;
 import com.sevenklick.common.backend.service.TicketService;
-import com.sevenklick.common.util.exception.NotAuthenticatedException;
-import com.sevenklick.common.util.exception.TicketNotValidException;
+import com.sevenklick.common.core.exception.NotAuthenticatedException;
+import com.sevenklick.common.core.exception.TicketNotValidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,8 @@ public class TicketFacadeImpl implements TicketFacade {
     @Override
     public String authenticate(String userName, String password) throws NotAuthenticatedException, TicketNotValidException {
         logger.debug("Authenticating user:"+userName);
-        return ticketService.createTicket(userName, password);
+        throw new NotAuthenticatedException(NotAuthenticatedException.NOT_AUTHENTICATED);
+        //return ticketService.createTicket(userName, password);
     }
 
 }

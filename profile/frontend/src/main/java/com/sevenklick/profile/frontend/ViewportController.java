@@ -1,21 +1,22 @@
 package com.sevenklick.profile.frontend;
-import com.sevenklick.common.util.helpers.CirrusDateUtil;
-import com.sevenklick.common.util.helpers.ContextHandler;
-import com.sevenklick.common.util.web.BaseController;
+
+import com.sevenklick.common.core.exception.NotAuthenticatedException;
+import com.sevenklick.common.core.exception.TechnicalException;
+import com.sevenklick.common.core.exception.TicketNotValidException;
+import com.sevenklick.common.core.helpers.ContextHandler;
+import com.sevenklick.common.core.web.BaseController;
+import com.sevenklick.profile.backend.facade.ProfileFacade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -25,53 +26,45 @@ import java.io.IOException;
 @RequestMapping("/")
 public class ViewportController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ViewportController.class);
+    @Autowired
+    ProfileFacade profileFacade;
 
     @RequestMapping
-    public  String init(ModelMap model, WebRequest request)  {
-        return "templates/comming-soon";
+    public String init(ModelMap model, WebRequest request) {
+        return "templates/signup/index";
     }
+
     @RequestMapping(value = "/template/login")
     public String loginViewTemplate() throws IOException {
-       return "templates/login";
+        return "templates/signon/login";
     }
+
     @RequestMapping(value = "/secured/template/profile")
     public String profileViewTemplate() throws IOException {
-        return "templates/profile";
+        return "templates/profile/index";
     }
+
+    @RequestMapping(value = "/signon")
+    public void signon(@RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelMap) throws IOException, NotAuthenticatedException {
+        modelMap.addAttribute("ticket", profileFacade.authenticateUser(email,password));
+    }
+
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-    public
-    String uploadFileHandler(@RequestParam("file") MultipartFile file) {
+    public String uploadFileHandler(@RequestParam("school") String school, @RequestParam("file") MultipartFile file, @RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelMap) throws NotAuthenticatedException, TechnicalException, TicketNotValidException {
 
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
-
-                // Creating the directory to store file
-                String rootPath = System.getProperty("catalina.home");
-                File dir = new File(rootPath + File.separator + "tmpFiles");
-                if (!dir.exists())
-                    dir.mkdirs();
-
-                // Create the file on server
-                File serverFile = new File(dir.getAbsolutePath()
-                        + File.separator + file.getOriginalFilename());
-                BufferedOutputStream stream = new BufferedOutputStream(
-                        new FileOutputStream(serverFile));
-                stream.write(bytes);
-                stream.close();
-
-                System.out.println("Server File Location="
-
-                        + serverFile.getAbsolutePath());
-
-                return "templates/profile";
-            } catch (Exception e) {
-                return "You failed to upload " + "kk" + " => " + e.getMessage();
+                //TODO Visibility of CV should be provided from UI
+                profileFacade.updateProfile(bytes, file.getContentType(), file.getOriginalFilename(), true, email, password);
+                modelMap.addAttribute("ticket", ContextHandler.get().getTicket());
+                return "templates/profile/index";
+            } catch (IOException e) {
+                throw new TechnicalException(TechnicalException.TECHNICAL_ERROR, "Could not upload file");
             }
-        } else {
-            return "You failed to upload " + "kk"
-                    + " because the file was empty.";
+
         }
+        return "templates/profile/index";
     }
 
 }

@@ -4,6 +4,6 @@
         version="2.0">
     <endpoint
             name="LoadPlanningWs"
-            implementation="com.sevenklick.backend.endpoint.SearchWSImpl"
+            implementation="com.sevenklick.profile.backend.endpoint.SearchWSImpl"
             url-pattern="/search-webservice"/>
 </endpoints>

@@ -1,7 +1,7 @@
 package com.sevenklick.common.backend.endpoint;
 
-import com.sevenklick.common.util.exception.TicketNotValidException;
-import com.sevenklick.common.util.helpers.CirrusWebService;
+import com.sevenklick.common.core.exception.TicketNotValidException;
+import com.sevenklick.common.core.helpers.CirrusWebService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

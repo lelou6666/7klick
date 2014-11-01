@@ -43,7 +43,7 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
     <context:component-scan base-package="com.primelog.cirrus.common.util"/>
 
-    <bean id="encryptionUtil" class="com.sevenklick.common.util.helpers.EncryptionUtil" factory-method="getInstance" lazy-init="false"/>
+    <bean id="encryptionUtil" class="com.sevenklick.common.core.helpers.EncryptionUtil" factory-method="getInstance" lazy-init="false"/>
     <bean id="localeResolver"
           class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
         <property name="defaultLocale" value="en" />

@@ -1,1 +1,0 @@
-Domain objects should be placed here

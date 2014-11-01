@@ -1,7 +1,7 @@
 package com.primelog.cirrus.common.util;
 
-import com.sevenklick.common.util.helpers.EncryptionUtil;
-import com.sevenklick.common.util.exception.TicketNotValidException;
+import com.sevenklick.common.core.helpers.EncryptionUtil;
+import com.sevenklick.common.core.exception.TicketNotValidException;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;

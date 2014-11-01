@@ -5,7 +5,7 @@ $.sound_on = false;
 $.ajaxSetup({
     data: {"ticket": $("#ticket").val()},
     beforeSend: function () {
-                $('#modalLayer').show();
+        $('#modalLayer').show();
     },
     complete: function () {
         $('#modalLayer').hide();

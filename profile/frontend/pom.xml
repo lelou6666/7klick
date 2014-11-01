@@ -84,17 +84,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
-            <plugin>
-                <!-- Oracle maven plugin for starting,stopping,deploying etc. to weblogic
-                     Read here for more info: http://docs.oracle.com/cd/E24329_01/web.1211/e24368/maven.htm
-                 -->
-                <groupId>com.oracle.weblogic</groupId>
-                <artifactId>wls-maven-plugin</artifactId>
-                <configuration>
-                    <name>${project.build.finalName}</name>
-                    <source>${project.build.directory}/${project.build.finalName}.war</source>
-                </configuration>
-            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

@@ -77,6 +77,12 @@
                 <version>${hsqldb.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>9.3-1102-jdbc41</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.jvnet.ws.wadl</groupId>
                 <artifactId>wadl-core</artifactId>
                 <version>${org.jvnet.wadl}</version>

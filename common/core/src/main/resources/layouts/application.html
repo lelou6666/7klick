@@ -101,16 +101,18 @@
             </div>
         </div>
     </div>
+
+
+</head>
+<div th:fragment="userContextFragment">
     <input type="hidden" id="cirrus-viewStateAdmin" th:value="${adminEnabled}"/>
     <input type="hidden" id="serverInstance" th:value="${serverInstance}"/>
     <input type="hidden" id="ticket" th:value="${ticket}"/>
     <input type="hidden" id="localizedDatePatternWeb" th:value="${localizedDatePatternWeb}"/>
     <input type="hidden" id="localizedDatePattern" th:value="${localizedDatePattern}"/>
+</div>
 
-
-</head>
-
-<nav class="navbar navbar-default" role="navigation" th:fragment="navBarLoginFragment" >
+    <nav class="navbar navbar-default" role="navigation" th:fragment="navBarLoginFragment" >
     <div class="container" style="margin-top: 10px;margin-bottom: 10px">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">

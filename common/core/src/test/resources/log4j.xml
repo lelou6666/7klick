@@ -11,7 +11,7 @@
         </layout>
     </appender>
 
-    <logger name="com.primelog.cirrus.common">
+    <logger name="com.sevenklick.common">
         <level value="info"/>
     </logger>
 

@@ -1,6 +1,8 @@
 <!--=== Profile ===-->
 <div class="profile container" xmlns="http://www.w3.org/1999/xhtml"
      xmlns:th="http://www.thymeleaf.org">
+<div th:include="application :: userContextFragment"/>
+
 <div class="row">
 <!--Left Sidebar-->
 <div class="profile">
@@ -415,6 +417,7 @@
 </div>
     <script th:inline="javascript">
     /*<![CDATA[*/
+
     jQuery(document).ready(function() {
         App.init();
         App.initCounter();

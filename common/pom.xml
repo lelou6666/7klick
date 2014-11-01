@@ -50,22 +50,17 @@
         <dependencies>
             <dependency>
                 <groupId>com.7klick</groupId>
+                <artifactId>common-configuration</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.7klick</groupId>
                 <artifactId>common-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.7klick</groupId>
                 <artifactId>common-backend</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.7klick</groupId>
-                <artifactId>common-configuration</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.7klick</groupId>
-                <artifactId>common-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

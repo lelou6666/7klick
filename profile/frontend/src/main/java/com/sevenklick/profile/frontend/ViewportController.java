@@ -31,7 +31,7 @@ public class ViewportController extends BaseController {
 
     @RequestMapping
     public String init(ModelMap model, WebRequest request) {
-        return "templates/signup/index";
+        return "templates/comming-soon";
     }
 
     @RequestMapping(value = "/template/login")
@@ -41,7 +41,7 @@ public class ViewportController extends BaseController {
 
     @RequestMapping(value = "/secured/template/profile")
     public String profileViewTemplate() throws IOException {
-        return "templates/profile/index";
+        return "templates/profile";
     }
 
     @RequestMapping(value = "/signon")
@@ -58,7 +58,7 @@ public class ViewportController extends BaseController {
                 //TODO Visibility of CV should be provided from UI
                 profileFacade.updateProfile(bytes, file.getContentType(), file.getOriginalFilename(), true, email, password);
                 modelMap.addAttribute("ticket", ContextHandler.get().getTicket());
-                return "templates/profile/index";
+                return "templates/profile";
             } catch (IOException e) {
                 throw new TechnicalException(TechnicalException.TECHNICAL_ERROR, "Could not upload file");
             }

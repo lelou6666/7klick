@@ -63,12 +63,6 @@
                 <artifactId>common-backend</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>9.3-1102-jdbc41</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 </project>

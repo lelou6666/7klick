@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Used to serialize Java.util.Date, which is not a common JSON
+ * Used to serialize Java.core.Date, which is not a common JSON
  * type, so we have to create a custom serialize method;.
  *
  * @author Pierre Petersson

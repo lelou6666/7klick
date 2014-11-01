@@ -37,10 +37,11 @@ public class UtilController extends BaseController {
     }
 
     @RequestMapping(value="/util/ticket", method = RequestMethod.POST)
-    public String createTicket(@RequestParam(value="domain") String domain,@RequestParam(value="username") String username, @RequestParam(value="password") String password,ModelMap map) throws NotAuthenticatedException, TicketNotValidException, NamingException, NotAuthenticatedException, TicketNotValidException {
-        map.put("ticket",ticketFacade.authenticate(username+"@"+domain, password));
-        map.put("user", username);
-        return "ticket";
+    public String createTicket(@RequestParam(value="domain") String domain,@RequestParam(value="username") String username, @RequestParam(value="password") String password,ModelMap map) throws NotAuthenticatedException, TicketNotValidException, NamingException, NotAuthenticatedException, TicketNotValidException , Exception{
+        throw new TicketNotValidException("kkk");
+        //map.put("ticket",ticketFacade.authenticate(username+"@"+domain, password));
+        //map.put("user", username);
+        //return "ticket";
     }
 
 }

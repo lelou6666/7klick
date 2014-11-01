@@ -22,7 +22,7 @@ public class ProfileServiceImpl implements ProfileService {
     public boolean authenticateUser(String email, String password) throws NotAuthenticatedException {
         UserEntity userEntity = userRepository.validateUserCredentials(email, password);
         if(userEntity==null){
-         throw new NotAuthenticatedException(NotAuthenticatedException.NOT_AUTHENTICATED, "Invalid usercredentials for user:"+ email);
+            throw new NotAuthenticatedException(NotAuthenticatedException.NOT_AUTHENTICATED, "Invalid usercredentials for user:"+ email);
         }else{
             return true;
         }

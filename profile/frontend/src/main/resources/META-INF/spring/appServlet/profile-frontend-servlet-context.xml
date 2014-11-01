@@ -35,6 +35,7 @@
     </bean>
     <!-- Thymeleaf configuration -->
     <import resource="classpath*:/META-INF/spring/thymeleaf-context.xml"/>
+    <!-- Components to support autowiring in frontend module-->
     <context:component-scan base-package="com.sevenklick.common.core"/>
 
 </beans>

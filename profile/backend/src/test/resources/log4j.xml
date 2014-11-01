@@ -11,14 +11,15 @@
         </layout>
     </appender>
 
-    <logger name="com.sevenklick.profile.backend">
+    <logger name="com.primelog.cirrus.loadplanning">
         <level value="debug"/>
     </logger>
 
+<!--
     <logger name="org.hibernate">
         <level value="TRACE"/>
     </logger>
-
+-->
     <!-- Root Logger -->
     <root>
         <priority value="INFO"/>

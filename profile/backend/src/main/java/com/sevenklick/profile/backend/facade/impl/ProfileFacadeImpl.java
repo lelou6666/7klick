@@ -62,9 +62,9 @@ public class ProfileFacadeImpl implements ProfileFacade {
     }
     private String createTicket(String userName){
         String ticket=null;
-            UserContext userContext = new UserContext();
-            userContext.setUserName(userName);
-            ticket = EncryptionUtil.getInstance().encrypt((new Gson().toJson(userContext)));
+        UserContext userContext = new UserContext();
+        userContext.setUserName(userName);
+        ticket = EncryptionUtil.getInstance().encrypt((new Gson().toJson(userContext)));
         return ticket;
 
     }

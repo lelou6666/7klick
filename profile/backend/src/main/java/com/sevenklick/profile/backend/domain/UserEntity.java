@@ -3,7 +3,6 @@ package com.sevenklick.profile.backend.domain;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**

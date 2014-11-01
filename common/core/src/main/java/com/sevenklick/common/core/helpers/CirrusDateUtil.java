@@ -1,5 +1,7 @@
 package com.sevenklick.common.core.helpers;
 
+import org.springframework.context.i18n.LocaleContextHolder;
+
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -149,10 +151,11 @@ public class CirrusDateUtil {
     }
 
     public static SimpleDateFormat getLocalizedDateFormatForContext(){
-        return getLocalizedDateFormat(ContextHandler.get().getLangaugeCode(),ContextHandler.get().getCountryCode());
+
+        return getLocalizedDateFormat(LocaleContextHolder.getLocale().getLanguage(),LocaleContextHolder.getLocale().getCountry());
     }
     public static SimpleDateFormat getLocalizedDateFormatForContext(int style){
-        return getLocalizedDateFormat(ContextHandler.get().getLangaugeCode(),ContextHandler.get().getCountryCode(), style);
+        return getLocalizedDateFormat(LocaleContextHolder.getLocale().getLanguage(),LocaleContextHolder.getLocale().getCountry(), style);
     }
 
     private static SimpleDateFormat getLocalizedDateFormat(Locale locale, int style){

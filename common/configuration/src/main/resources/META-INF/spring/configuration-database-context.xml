@@ -33,7 +33,7 @@
             <props>
                 <prop key="hibernate.hbm2ddl.auto">none</prop>
                 <prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
-<!--                <prop key="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</prop>-->
+                <!--                <prop key="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</prop>-->
                 <prop key="hibernate.ejb.entitymanager_factory_name">cirrus-entitymanager</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
             </props>

@@ -49,15 +49,15 @@ public class EncryptionUtil {
             try {
                 EncryptionUtil.encryptionUtil.dCipher= initCipher(privateSecurityKey,Cipher.DECRYPT_MODE);
             } catch (NoSuchAlgorithmException e) {
-                logger.error("Could not initialiaze encryption util", e);
+                logger.error("Could not initialiaze encryption core", e);
             } catch (InvalidKeySpecException e) {
-                logger.error("Could not initialiaze encryption util",e);
+                logger.error("Could not initialiaze encryption core",e);
             } catch (NoSuchPaddingException e) {
-                logger.error("Could not initialiaze encryption util",e);
+                logger.error("Could not initialiaze encryption core",e);
             } catch (InvalidKeyException e) {
-                logger.error("Could not initialiaze encryption util",e);
+                logger.error("Could not initialiaze encryption core",e);
             } catch (InvalidAlgorithmParameterException e) {
-                logger.error("Could not initialiaze encryption util",e);
+                logger.error("Could not initialiaze encryption core",e);
             }
 
         }else{

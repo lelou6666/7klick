@@ -15,11 +15,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
         </dependency>

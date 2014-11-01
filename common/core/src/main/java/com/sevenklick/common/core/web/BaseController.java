@@ -62,13 +62,18 @@ public class BaseController {
         }
 
         if(ContextHandler.get()==null){
+            String pattern = getLocale().toLocalizedPattern();
+            model.addAttribute("localizedDatePattern",pattern );
             model.addAttribute("ticket", servletWebRequest.getParameter("ticket"));
+            model.addAttribute("adminEnabled", Boolean.FALSE);
+            model.addAttribute("localizedDatePatternWeb", pattern.toLowerCase().replace("yy", "y"));
         }else {
-            //String pattern = getLocale().toLocalizedPattern();
+            String pattern = getLocale().toLocalizedPattern();
+            model.addAttribute("adminEnabled", ContextHandler.get().isAdminEnabled());
             model.addAttribute("ticket", ContextHandler.get().getTicket());
-            //model.addAttribute("localizedDatePattern", pattern );
-            //model.addAttribute("localizedDatePatternWeb", pattern.toLowerCase().replace("yy", "y"));
-
+            model.addAttribute("localizedDatePattern", pattern );
+            model.addAttribute("localizedDatePatternWeb", pattern.toLowerCase().replace("yy", "y"));
+            model.addAttribute("plcId", ContextHandler.get().getTenantId());
 
         }
     }

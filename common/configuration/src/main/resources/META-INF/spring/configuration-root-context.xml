@@ -8,7 +8,6 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <beans>
-        <context:component-scan base-package="com.sevenklick.common.core"/>
         <context:property-placeholder location="classpath:META-INF/spring/configuration.properties" />
         <!-- Set -Dcirrus.config.file=<path>/configuration.properties to override defaults (=test) -->
         <context:property-override ignore-resource-not-found="true" ignore-unresolvable="true" location="file:${cirrus.config.file:dummy.properties}" file-encoding="UTF-8" />

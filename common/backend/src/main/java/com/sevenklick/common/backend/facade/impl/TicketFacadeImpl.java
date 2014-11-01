@@ -27,8 +27,7 @@ public class TicketFacadeImpl implements TicketFacade {
     @Override
     public String authenticate(String userName, String password) throws NotAuthenticatedException, TicketNotValidException {
         logger.debug("Authenticating user:"+userName);
-        throw new NotAuthenticatedException(NotAuthenticatedException.NOT_AUTHENTICATED);
-        //return ticketService.createTicket(userName, password);
+        return ticketService.createTicket(userName, password);
     }
 
 }

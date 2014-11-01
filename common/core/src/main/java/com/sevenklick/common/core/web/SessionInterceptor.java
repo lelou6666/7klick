@@ -6,6 +6,7 @@ import com.sevenklick.common.core.domain.Context;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,12 +19,12 @@ import javax.servlet.http.HttpServletResponse;
  * 2. Http Session
  * 3. Http request post or querystring
  */
-@Component
+
 public class SessionInterceptor implements HandlerInterceptor  {
     private final Logger logger = LoggerFactory.getLogger(SessionInterceptor.class);
 
     @Override
-    public synchronized boolean preHandle(HttpServletRequest request,
+    public boolean preHandle(HttpServletRequest request,
                                  HttpServletResponse response, Object handler) throws Exception {
         try {
                 String ticket = null;
@@ -52,7 +53,11 @@ public class SessionInterceptor implements HandlerInterceptor  {
                            HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
         logger.debug("Post-handle");
+        if (modelAndView != null) {
+            modelAndView.getModelMap().addAttribute("ticket",ContextHandler.get().getTicket());
+        }
     }
+
 
     @Override
     public void afterCompletion(HttpServletRequest request,

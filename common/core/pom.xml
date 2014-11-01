@@ -18,6 +18,7 @@
             <groupId>com.7klick</groupId>
             <artifactId>common-configuration</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.sun.xml.ws</groupId>
             <artifactId>jaxws-rt</artifactId>

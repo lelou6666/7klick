@@ -87,7 +87,7 @@
                         <ul class="timeline-v2">
 
                             <li>
-                                <time class="cbp_tmtime" datetime=""><span>1/3 Obligatoriskt</span> <span>Steg 1</span></time>
+                                <time class="cbp_tmtime" datetime=""><span>1/2 Obligatoriskt</span> <span>Steg 1</span></time>
                                 <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-one"></i>
                                 <div class="cbp_tmlabel step-one-user">
                                     <h3>Ladda upp CV <span class="color-red">*</span>
@@ -123,7 +123,7 @@
                                 </div>
                             </li>
                             <li>
-                                <time class="cbp_tmtime" datetime=""><span>2/3 Obligatoriskt</span> <span>Steg 2</span></time>
+                                <time class="cbp_tmtime" datetime=""><span>2/2 Obligatoriskt</span> <span>Steg 2</span></time>
                                 <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-two"></i>
                                 <div class="cbp_tmlabel step-two-user " style="opacity: 0.2;">
                                     <h3>Logga in <span class="color-red">*</span></h3>
@@ -145,11 +145,18 @@
 
                                                 <label class="input">
                                                     <div class="btn-group">
-                                                        <a href="#" style="color:blue">
+
+                                                        <a href="#" style="color:blue" id="signOnLinkedIn">
+
                                                             <i class="fa fa-linkedin"></i> <span style="color:grey">Linked in&nbsp;&nbsp;&nbsp;</span></a>
                                                     </div>
                                                     <div class="btn-group">
-                                                        <a href="#" style="color:red">
+                                                        <a href="#" style="color:blue" id="signOnFacebook">
+                                                            <i class="fa fa-facebook"></i><span style="color:grey">&nbsp;Facebook</span></a>
+                                                    </div>
+
+                                                    <div class="btn-group">
+                                                        <a href="#" style="color:red" id="signOnGmail">
                                                             <i class="fa fa-google-plus"></i><span style="color:grey">&nbsp;Google mail</span></a>
                                                     </div>
 
@@ -164,7 +171,7 @@
                             </li>
 
                             <li>
-                                <time class="cbp_tmtime" datetime=""><span>3/3 Frivilligt</span> <span>Steg 3</span></time>
+                                <time class="cbp_tmtime" datetime=""><span>Frivilligt</span> <span>Steg 3</span></time>
                                 <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-three"></i>
                                 <div class="cbp_tmlabel step-three-user" style="opacity: 0.2;" >
                                     <h3>Har du eller är du påväg att ta examen? Välj skola</h3>
@@ -250,7 +257,7 @@
                                         </div>
 
                                         <div class="col-md-4 pull-right">
-                                            <button id="btnsubmit" type="submit" class="btn-u btn-block">Ladda upp CV</button>
+                                            <button id="btnsubmit" type="submit" class="btn-u btn-block">Bli medlem</button>
                                         </div>
                                     </div>
 
@@ -262,6 +269,32 @@
                         </ul>
                     </div>
                     </form>
+                    <!-- FACEBOOK SIGNIN -->
+                    <form name="fb_signin" id="fb_signin" th:action="@{~/authenticator/signin/facebook}" method="POST" style="display: none" onsubmit="target_popup(this)">
+                        <input type="hidden" name="scope" value="publish_stream,user_photos,offline_access"/>
+                        <button type="submit"></button>
+                    </form>
+
+                    <!-- LINKEDIN SIGNIN -->
+                    <form name="li_signin" id="li_signin" th:action="@{~/authenticator/signin/linkedin}" method="POST"  onsubmit="target_popup(this)" style="display:none">
+                        <input type="hidden" name="scope" value="r_basicprofile r_emailaddress r_network r_fullprofile rw_nus" />
+
+                        <button type="submit">Sign In with LinkedIn</button>
+                    </form>
+                    <!-- FACEBOOK SIGNIN -->
+                    <form name="gmail_signin" id="gmail_signin" th:action="@{~/authenticator/signin/gmail}" method="POST" style="display: none" onsubmit="target_popup(this)">
+                        <input type="hidden" name="scope" value="publish_stream,user_photos,offline_access"/>
+                        <button type="submit"></button>
+                    </form>
+
+                    <!-- 3. Displays a button to let the viewer authenticate -->
+<!--
+                    <script type="IN/Login"></script>
+-->
+
+                    <!-- 4. Placeholder for the greeting -->
+                    <div id="profiles"></div>
+
                 </div>                <!-- End Our Services -->
 
             </div><!--/col-md-9-->
@@ -370,7 +403,35 @@
     $('#fileCVUpload').bind('keypress keydown keyup', function(e){
         if(e.keyCode == 13) { e.preventDefault(); }
     });
+    function target_popup(form) {
+        window.open('', 'formpopup', 'width=800,height=650,resizeable,scrollbars');
+        form.target = 'formpopup';
+    }
+    // Social Logins
+    $("#signOnLinkedIn").on("click", function(){$("#li_signin").submit();return false;})
+    $("#signOnFacebook").on("click", function(){$("#fb_signin").submit();return false;})
+    $("#signOnGmail").on("click", function(){$("#gmail_signin").submit();return false;})
 
+
+    window.userSignedOn = function(){
+        console.log("Inloggad");
+    };
+    // 2. Runs when the JavaScript framework is loaded
+    function onLinkedInLoad() {
+        IN.Event.on(IN, "auth", onLinkedInAuth);
+    }
+
+    // 2. Runs when the viewer has authenticated
+    function onLinkedInAuth() {
+        IN.API.Profile("me").result(displayProfiles);
+    }
+
+    // 2. Runs when the Profile() API call returns successfully
+    function displayProfiles(profiles) {
+        member = profiles.values[0];
+        document.getElementById("profiles").innerHTML =
+                "<p id=\"" + member.id + "\">Hello " +  member.firstName + " " + member.lastName + "</p>";
+    }
     /*]]>*/
 </script>
 
@@ -381,5 +442,6 @@
 
 
 </body>
+
 <div th:include="templates/modal :: modalFragment" class="modal fade in" id="modalRegistration"/>
 </html>	

@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="headFragment">
 
+
     <!-- Force latest IE rendering engine or ChromeFrame if installed -->
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
@@ -173,6 +174,12 @@
     <script th:src="@{~/common-web/resources/assets/jasny/js/jasny-bootstrap.min.js}"></script>
     <script th:src="@{~/common-web/resources/assets/js/framework.js}"></script>
     <script th:src="@{~/common-web/resources/assets/localization/validation/messages_sv.js}"></script>
+    <!-- 1. Include the LinkedIn JavaScript API and define a onLoad callback function -->
+    <script type="text/javascript" src="https://platform.linkedin.com/in.js">/*
+     api_key: 75ffghiz5lr9fz
+     onLoad: onLinkedInLoad
+     authorize: true
+     */</script>
 
 
     <!--[if lt IE 9]>

@@ -18,20 +18,6 @@
             <div class="container">
                 <!-- Topbar Navigation -->
                 <ul class="loginbar pull-right">
-                    <li>
-                        <i class="fa fa-globe"></i>
-                        <a>Languages</a>
-                        <ul class="lenguages">
-                            <li class="active">
-                                <a href="#">English <i class="fa fa-check"></i></a>
-                            </li>
-                            <li><a href="#">Spanish</a></li>
-                            <li><a href="#">Russian</a></li>
-                            <li><a href="#">German</a></li>
-                        </ul>
-                    </li>
-                    <li class="topbar-devider"></li>
-                    <li><a href="#" data-content-load="secured/template/profile">Min profil</a></li>
                     <li class="topbar-devider"></li>
                     <li><a href="page_login.html">Login</a></li>
                 </ul>
@@ -45,15 +31,8 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="fa fa-bars"></span>
-                    </button>
                     <a class="navbar-brand" href="index.html" style="top:-25px">
-                        <img id="logo-header" alt="" src="/common-web/resources/assets/img/logo_7klick-2.png" style="
-    height: 43px;
-    width: 41px;
-"/>Klick
+                        <img id="logo-header" alt="" src="/common-web/resources/assets/img/logo_7klick-2.png" style="height: 43px;width: 41px;"/>Klick
                     </a>
                 </div>
 
@@ -73,7 +52,9 @@
                 <!-- Our Services -->
                 <div><h2></h2></div>
                 <div class="row margin-bottom-10">
-                    <div class="col-md-4 col-sm-4">
+                <p style="margin-left: 76px;" id="step-progress"><span class="badge rounded-4x badge-u step-counter">7</span> Klick från att bli medlem</p>
+                    <div class="visible-lg col-md-4 col-sm-4">
+
                         <div class="servive-block servive-block-default">
                             <i class="icon-custom icon-color-dark rounded-x fa fa-lightbulb-o"></i>
                             <h2 class="heading-md">Informations text</h2>
@@ -82,12 +63,12 @@
                         </div>
                     </div>
                     <form id="fileCVUpload" class="sky-form" enctype="multipart/form-data" method="post" action="uploadFile" style="border: 0px">
-                    <div class="col-md-8">
-                        <p class="col-md-offset-5" id="step-progress" style="opacity: 0"><span class="badge rounded-4x badge-u step-counter">3</span> steg kvar från att ditt CV finns på arbetmarknaden</p>
+                    <div class="col-md-5">
+
                         <ul class="timeline-v2">
 
                             <li>
-                                <time class="cbp_tmtime" datetime=""><span>1/2 Obligatoriskt</span> <span>Steg 1</span></time>
+                                <time class="cbp_tmtime" datetime=""><span>Steg 1/4</span> <span> Obligatoriskt</span></time>
                                 <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-one"></i>
                                 <div class="cbp_tmlabel step-one-user">
                                     <h3>Ladda upp CV <span class="color-red">*</span>
@@ -123,7 +104,7 @@
                                 </div>
                             </li>
                             <li>
-                                <time class="cbp_tmtime" datetime=""><span>2/2 Obligatoriskt</span> <span>Steg 2</span></time>
+                                <time class="cbp_tmtime" datetime=""><span>Steg 2/4</span> <span>Obligatoriskt</span></time>
                                 <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-two"></i>
                                 <div class="cbp_tmlabel step-two-user " style="opacity: 0.2;">
                                     <h3>Logga in <span class="color-red">*</span></h3>
@@ -171,7 +152,7 @@
                             </li>
 
                             <li>
-                                <time class="cbp_tmtime" datetime=""><span>Frivilligt</span> <span>Steg 3</span></time>
+                                <time class="cbp_tmtime" datetime=""><span>Steg 3/4</span> <span>Frivilligt</span></time>
                                 <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-three"></i>
                                 <div class="cbp_tmlabel step-three-user" style="opacity: 0.2;" >
                                     <h3>Har du eller är du påväg att ta examen? Välj skola</h3>
@@ -248,22 +229,29 @@
                                         </div>
 
                                     </div>
+                                </div>
+                            </li>
+
+
+                            <li>
+                                <time class="cbp_tmtime" datetime=""><span>Steg 4/4</span> <span>Obligatoriskt</span></time>
+                                <i class="cbp_tmicon rounded-x hidden-xs step-dot-disabled step-dot-three"></i>
+                                <div class="cbp_tmlabel step-three-user" style="opacity: 0.2;" >
                                     <div class="row">
                                         <div class="col-md-8 left">
                                             <label class="checkbox">
-                                                <input type="checkbox" checked="true" style="position: static"/>
-                                                <p style="font-size: 12px">Jag godkänner <a target="_blank" href="page_terms.html">7 Klicks regler och vilkor</a></p>
+                                                <input id="chkTerms" type="checkbox" style="position: static"/>
+                                                <p style="font-size: 12px">Jag godkänner <a target="_blank" href="page_terms.html">7 Klicks vilkor</a></p>
                                             </label>
                                         </div>
 
                                         <div class="col-md-4 pull-right">
-                                            <button id="btnsubmit" type="submit" class="btn-u btn-block">Bli medlem</button>
+                                            <button id="btnsubmit" type="submit" class="btn-u btn-u-sm btn-u-dark-blue">Bli medlem</button>
                                         </div>
                                     </div>
 
                                 </div>
                             </li>
-
 
 
                         </ul>
@@ -306,6 +294,11 @@
 <div th:include="application :: libraryFragment"/>
 <script th:inline="javascript">
     /*<![CDATA[*/
+    function updateStepProgress(stepNumber){
+        $(".step-counter").text(stepNumber);
+        $("#step-progress").fadeTo(700, 1).fadeTo(700,0.0).fadeTo(700,1);
+    }
+
     jQuery(document).ready(function() {
         App.init();
         App.initFancybox();
@@ -319,10 +312,6 @@
                 error.insertBefore(element.parent());
             }
         });
-        function updateStepProgress(stepNumber){
-            $(".step-counter").text(stepNumber);
-            $("#step-progress").fadeTo(1000, 1).fadeTo(3000,0.0);
-        }
         $("#school").on("change", function(){
             if($(this).val()==-1){
                 $(".step-dot-three").addClass("step-dot-disabled");
@@ -343,14 +332,14 @@
                 $('.filename-placeholder').hide();
                 $( ".step-two-user" ).fadeTo( "slow" , 0.2);
                 $( ".step-three-user" ).fadeTo( "slow" , 0.2);
-                updateStepProgress(2);
+                updateStepProgress(7);
                 $(".step-dot-two").addClass("step-dot-disabled")
                 $(".step-dot-three").addClass("step-dot-disabled")
             }else{
                 $(".step-dot-one").removeClass("step-dot-disabled")
                 $(".step-two-user" ).fadeTo( "slow" , 1);
                 $(".step-three-user" ).fadeTo( "slow" , 1);
-                updateStepProgress(1);
+                updateStepProgress(5);
                 $("#email").focus();
                 $('.filename-placeholder').show();
                 $('.filename-content').html("<br/><span class='filename-placeholder' style='color:blue;font-size: 12px'>Filnamn:"+$(this).val().replace('C:\\fakepath\\','')+"</span>");
@@ -382,6 +371,10 @@
         });},500);
         return false;
     });
+
+    $("#email").on("focus", function(){
+        updateStepProgress(3);
+    });
     $("#email").on("keyup", function(){
         var m=$("#fileCVUpload");
         if(m.valid()){
@@ -390,6 +383,10 @@
             $(".step-dot-two").addClass("step-dot-disabled")
         }
     });
+    $("#password").on("focus", function(){
+        updateStepProgress(2);
+    });
+
     $("#password").on("keyup", function(){
         var m=$("#fileCVUpload");
         if(m.valid()){
@@ -398,6 +395,19 @@
             $(".step-dot-two").addClass("step-dot-disabled")
         }
     });
+
+    $("#chkTerms").on("click", function(data){
+        if($('#chkTerms').prop('checked')){
+            updateStepProgress(1);
+            $(".step-dot-three").removeClass("step-dot-disabled")
+
+        }else{
+            updateStepProgress(2);
+            $(".step-dot-three").addClass("step-dot-disabled");
+        }
+
+    });
+
     // Upload CV Sign in fade toggle
     $( ".step-one-2-user input").on("focus", function(){ $( ".step-one-2-user" ).fadeTo( "slow" , 1)});
     $('#fileCVUpload').bind('keypress keydown keyup', function(e){

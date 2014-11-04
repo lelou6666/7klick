@@ -79,15 +79,48 @@
         }
         .bigBox {
             top:80px!important;
+            z-index: -1000;
         }
         #divMiniIcons {
             top:36px!important;
+            z-index: -1000;
         }
+        #divSmallBoxes {
+            z-index: -1000!important;
+        }
+
         .bigBox p {
             color: white!important;
         }
         .invalid {
             color:red!important;
+        }
+        .timeline-v2 > li .cbp_tmtime {
+            width: 33%!important;
+            display: block;
+            position: absolute;
+            padding-right: 80px;
+        }
+        .timeline-v2 > li .cbp_tmtime span:first-child {
+            color: #555!important;
+            font-size: 16px!important;
+            line-height: 0.9;
+        }
+        .timeline-v2 > li .cbp_tmtime span:last-child {
+            color: #999!important;
+            font-size: 10px;
+            font-weight: normal;
+        }
+
+        .timeline-v2 > li .cbp_tmlabel {
+            color: #fff;
+            padding: 10px 20px 20px;
+            background: #f3f3f3;
+            line-height: 1.4;
+            clear: both;
+            position: relative;
+            border-radius: 5px;
+            margin: 0 0 8px 25%!important;
         }
     </style>
     <div id="modalLayer"

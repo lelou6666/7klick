@@ -47,7 +47,7 @@
     <link th:href="@{~/common-web/resources/assets/plugins/select2/css/select2.css}" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/sky-forms/version-2.0.1/css/sky-forms.css}"/>
     <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/sky-forms/version-2.0.1/css/custom-sky-forms.css}"/>
-    <link rel="stylesheet" th:href="@{~/    common-web/resources/assets/unify/css/pages/profile.css}"/>
+    <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/css/pages/profile.css}"/>
     <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/css/pages/feature_timeline2.css}"/>
     <link rel="stylesheet" th:href="@{~/common-web/resources/assets/unify/plugins/scrollbar/src/perfect-scrollbar.css}"/>
 
@@ -77,24 +77,6 @@
         .step-dot-disabled {
             background-color: gray!important;
         }
-        .bigBox {
-            top:80px!important;
-            z-index: -1000;
-        }
-        #divMiniIcons {
-            top:36px!important;
-            z-index: -1000;
-        }
-        #divSmallBoxes {
-            z-index: -1000!important;
-        }
-
-        .bigBox p {
-            color: white!important;
-        }
-        .invalid {
-            color:red!important;
-        }
         .timeline-v2 > li .cbp_tmtime {
             width: 33%!important;
             display: block;
@@ -122,9 +104,26 @@
             border-radius: 5px;
             margin: 0 0 8px 25%!important;
         }
+
+        .bigBox {
+            top:80px!important;
+            z-index: -1000;
+        }
+        #divMiniIcons {
+            top:36px!important;
+            z-index: -1000;
+        }
+        #divSmallBoxes {
+            z-index: -1000!important;
+        }
+        .bigBox p {
+            color: white!important;
+        }
+        .invalid {
+            color:red!important;
+        }
     </style>
-    <div id="modalLayer"
-         style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; background-color: white; opacity: 0.6; z-index: 200000;">
+    <div id="modalLayer" style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; background-color: white; opacity: 0.6; z-index: 200000;">
         <div style="position:absolute;left: 42%;top: 44%;color:black">
             <span>Processing request, please wait</span>
 

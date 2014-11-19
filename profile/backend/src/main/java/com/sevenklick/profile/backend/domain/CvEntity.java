@@ -32,7 +32,7 @@ public class CvEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 60)
+    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 160)
     public String getName() {
         return name;
     }
@@ -82,7 +82,7 @@ public class CvEntity {
     }
 
     @Basic
-    @Column(name = "content_type", nullable = true, insertable = true, updatable = true, length = 40)
+    @Column(name = "content_type", nullable = true, insertable = true, updatable = true, length = 140)
     public String getContentType() {
         return contentType;
     }

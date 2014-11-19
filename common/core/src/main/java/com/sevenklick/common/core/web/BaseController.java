@@ -60,16 +60,10 @@ public class BaseController {
         }else{
             model.addAttribute("serverInstance", servletWebRequest.getRequest().getScheme()+"://"+webLibServerInstance);
         }
-
         if(ContextHandler.get()==null){
             model.addAttribute("ticket", servletWebRequest.getParameter("ticket"));
         }else {
-            //String pattern = getLocale().toLocalizedPattern();
             model.addAttribute("ticket", ContextHandler.get().getTicket());
-            //model.addAttribute("localizedDatePattern", pattern );
-            //model.addAttribute("localizedDatePatternWeb", pattern.toLowerCase().replace("yy", "y"));
-
-
         }
     }
 

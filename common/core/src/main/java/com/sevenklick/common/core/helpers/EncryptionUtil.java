@@ -41,6 +41,7 @@ public class EncryptionUtil {
     private static final int ITERATION_COUNT = 65536;
 
     private static boolean enableEncryption = true;
+    private static Cipher eCipher;
     private static Cipher dCipher;
     private static EncryptionUtil encryptionUtil;
     public static EncryptionUtil getInstance() {
@@ -48,6 +49,7 @@ public class EncryptionUtil {
             EncryptionUtil.encryptionUtil = new EncryptionUtil();
             try {
                 EncryptionUtil.encryptionUtil.dCipher= initCipher(privateSecurityKey,Cipher.DECRYPT_MODE);
+                EncryptionUtil.encryptionUtil.eCipher= initCipher(privateSecurityKey,Cipher.ENCRYPT_MODE);
             } catch (NoSuchAlgorithmException e) {
                 logger.error("Could not initialiaze encryption util", e);
             } catch (InvalidKeySpecException e) {
@@ -74,8 +76,8 @@ public class EncryptionUtil {
           String encryptedMessage = message;
         try {
 
-            Cipher eCipher = initCipher(privateSecurityKey,Cipher.ENCRYPT_MODE);
-            byte[] encrypted = eCipher.doFinal(message.getBytes());
+            //Cipher eCipher = initCipher(privateSecurityKey,Cipher.ENCRYPT_MODE);
+            byte[] encrypted = EncryptionUtil.eCipher.doFinal(message.getBytes());
             byte[] encoded = Base64Util.encodeUrlSafeNoChunks(encrypted);
             encryptedMessage = new String(encoded);
 

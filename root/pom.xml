@@ -57,7 +57,7 @@
         <jackson.mapper>1.7.1</jackson.mapper>
         <com.oracle.version>11.2.0.3</com.oracle.version>
 
-        <scm.server.url>scm:git:git@t24app007</scm.server.url>
+        <scm.server.url>https://github.com/piemar/7klick.git</scm.server.url>
         <nexus.server.url>http://t24app007:8081/nexus</nexus.server.url>
     </properties>
 

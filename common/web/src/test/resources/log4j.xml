@@ -11,9 +11,18 @@
         </layout>
     </appender>
 
+    <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Append" value="false"/>
+        <param name="File" value="c:\\logs\\common.log"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n"/>
+        </layout>
+    </appender>
+
     <!-- Application Loggers -->
-    <logger name="com.primelog.integration">
-        <level value="info"/>
+    <logger name="com.sevenklick">
+        <level value="trace"/>
     </logger>
 
     <!-- 3rdparty Loggers -->
@@ -35,7 +44,7 @@
 
     <!-- Root Logger -->
     <root>
-        <priority value="info"/>
+        <priority value="warn"/>
         <appender-ref ref="console"/>
     </root>
 

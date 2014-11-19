@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
@@ -29,10 +30,14 @@ public class ViewportController extends BaseController {
     @Autowired
     ProfileFacade profileFacade;
 
-    @RequestMapping
-    public String init(ModelMap model, WebRequest request) {
-        return "templates/comming-soon";
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index(ModelMap model, WebRequest request) {
+        model.addAttribute("template", "templates/register");
+        model.addAttribute("fragment","registerFragment");
+        return  "templates/index";
+        //return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
     }
+
 
     @RequestMapping(value = "/template/login")
     public String loginViewTemplate() throws IOException {
@@ -50,21 +55,23 @@ public class ViewportController extends BaseController {
     }
 
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-    public String uploadFileHandler(@RequestParam("school") String school, @RequestParam("file") MultipartFile file, @RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelMap) throws NotAuthenticatedException, TechnicalException, TicketNotValidException {
-
+    public String uploadFileHandler(@RequestParam("school") String school, @RequestParam("file") MultipartFile file, @RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelMap) throws NotAuthenticatedException, TechnicalException, TicketNotValidException, InterruptedException {
+        //Thread.sleep(3000);
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
                 //TODO Visibility of CV should be provided from UI
                 profileFacade.updateProfile(bytes, file.getContentType(), file.getOriginalFilename(), true, email, password);
                 modelMap.addAttribute("ticket", ContextHandler.get().getTicket());
-                return "templates/profile";
+                modelMap.addAttribute("location", "secured/template/profile");
+
             } catch (IOException e) {
                 throw new TechnicalException(TechnicalException.TECHNICAL_ERROR, "Could not upload file");
             }
 
         }
-        return "templates/profile/index";
+
+        return "templates/profile";
     }
 
 }

@@ -35,7 +35,6 @@ public class ProfileFacadeImpl implements ProfileFacade {
 
     @Override
     public UserEntity updateProfile(byte[] content, String contentType, String name, Boolean visibility, String email, String password) throws NotAuthenticatedException, TicketNotValidException {
-        String ticket=null;
         UserEntity userEntity = profileService.isEmailUnique(email);
 
         // If user does not exist create new user and store cv

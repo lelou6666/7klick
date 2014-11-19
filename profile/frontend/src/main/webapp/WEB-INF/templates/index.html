@@ -1,57 +1,296 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<!-- Infrastructure -->
+<!--[if IE 8]> <html lang="en" class="ie8" xmlns="http://www.w3.org/1999/xhtml"
+                     xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9" xmlns="http://www.w3.org/1999/xhtml"
+                     xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                         xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
 <head th:include="application :: headFragment"/>
-<link rel="stylesheet" th:href="@{/resources/css/application.css}"/>
-<style>
-    .form-field-configured {
-        text-decoration: line-through;
-        color:red;
-    }
-    .form-field-hidden {
-        display: none;
-    }
-</style>
-<body class="desktop-detected container fixed-header" style="font-size:12px">
-<header id="header" th:include="application :: breadCrumbFragment"/>
-<div th:replace="templates/modal-split :: modalSplitFragment"/>
-<!-- Infrastructure end -->
-<!-- MAIN PANEL -->
-<div id="main" role="main">
-    <!-- MAIN CONTENT -->
-    <div id="content">
-        <!-- widget grid -->
-        <section id="widget-grid" class="">
-            <div th:include="templates/search :: searchFragment"/>
-            <div th:include="templates/content :: contentFragment"/>
-        </section>
+
+
+<body>
+
+<div class="wrapper">
+    <!--=== Header ===-->
+    <div class="header">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="container">
+                <!-- Topbar Navigation -->
+                <ul class="loginbar pull-right">
+                    <li class="topbar-devider"></li>
+                    <li><a href="page_login.html">Login</a></li>
+                </ul>
+                <!-- End Topbar Navigation -->
+            </div>
+        </div>
+        <!-- End Topbar -->
+
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html" style="top:-25px">
+                        <img id="logo-header" alt="" src="/common-web/resources/assets/img/logo_7klick-2.png" style="height: 43px;width: 41px;"/>Klick
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+
+            </div>
+        </div>
+        <!-- End Navbar -->
     </div>
-</div>
+    <!--=== End Header ===-->
 
-
-<!-- Infrastructure libraries -->
-<div th:replace="application :: libraryFragment"/>
-<!-- Infrastructure libraries END -->
-
-<!-- Page specific  -->
-
+    <!--=== Content Part ===-->
+    <div id="main-content" class="container">
+        <div th:include="application :: userContextFragment"/>
+        <!--=== User not authenticated ===-->
+        <div th:include="${template} :: ${fragment}"/>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+</div><!--/wrapper-->
+<div th:include="application :: libraryFragment"/>
 <script th:inline="javascript">
     /*<![CDATA[*/
-
-    var pagefunction = function() {
-        initViewContextState("form-personalisation_"+window.location.pathname, "form");
-        initViewContextState('DataTables_'+window.location.pathname, "datatable");
+    window.userSignedOn = function(){
+        console.log("Inloggad");
     };
 
-    loadScript(/*[[@{/resources/js/load-planning.js}]]*/, function() {
-        pagefunction();
+    function updateStepProgress(stepNumber){
+        $(".step-counter").text(stepNumber);
+        $("#step-progress").fadeTo(700, 1).fadeTo(700,0.0).fadeTo(700,1);
+    }
+
+    $(document).ready(function() {
+
+        App.init();
+        App.initFancybox();
+        Index.initRevolutionSlider();
+        pageSetup();
+        $('#modalLayer').hide();
+        // Variable to store your files
+        var files;
+
+        // Add events
+        $('input[type=file]').on('change', prepareUpload);
+
+        // Grab the files and set them to our variable
+        function prepareUpload(event)
+        {
+            files = event.target.files;
+        }
+
+        $('#fileCVUpload').on('submit', uploadFiles);
+        // Catch the form submit and upload the files
+        function uploadFiles(event)
+        {
+            event.stopPropagation(); // Stop stuff happening
+            event.preventDefault(); // Totally stop stuff happening
+
+            $("#modalLayer").show();
+
+            // Create a formdata object and add the files
+            var data = new FormData();
+            $.each(files, function(key, value)
+            {
+                data.append("file", value);
+            });
+            data.append("school", $("#school").val());
+            data.append("email", $("#email").val());
+            data.append("password", $("#password").val());
+            $.ajax({
+
+                url: 'uploadFile.json',
+                type: 'POST',
+                data: data,
+                cache: false,
+                dataType: 'json',
+                processData: false, // Don't process the files
+                contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+                success: function(data, textStatus, jqXHR)
+                {
+                    console.log("1");
+                    console.log(data);
+                    if(typeof data.error === 'undefined')
+                    {
+                        $("#modalLayer").show();
+                        setTimeout(function(){
+                            updateTicket(data.ticket);
+                            window.location.hash=data.location;
+                            checkURL();
+                            $("#modalLayer").hide();
+                        },2000);
+
+                    }
+                    else
+                    {
+                        // Handle errors here
+                        console.log('ERRORS: ' + data.error);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    // Handle errors here
+                    console.log('ERRORS: ' + textStatus);
+                    $("#modalLayer").hide();
+
+                    // STOP LOADING SPINNER
+                }
+            });
+        }
+
+
+        // Activate validation for fileCVUpload form
+        $("#fileCVUpload").validate({
+            // Do not change code below
+            errorPlacement: function(error, element)
+            {
+                error.insertBefore(element.parent());
+            }
+        });
+        $("#school").on("change", function(){
+            if($(this).val()==-1){
+                $(".step-dot-three").addClass("step-dot-disabled");
+
+            }else{
+                $(".step-dot-three").removeClass("step-dot-disabled")
+            }
+
+        });
+        $("#fileUpload").on("change", function(){
+            var m=$("#fileCVUpload");
+            if(m.valid()){
+                $(".step-dot-two").removeClass("step-dot-disabled")
+            }else{
+                $(".step-dot-two").addClass("step-dot-disabled")
+            }
+            if($(this).val().length<1){
+                $('.filename-placeholder').hide();
+                $( ".step-two-user" ).fadeTo( "slow" , 0.2);
+                $( ".step-three-user" ).fadeTo( "slow" , 0.2);
+                updateStepProgress(7);
+                $(".step-dot-two").addClass("step-dot-disabled")
+                $(".step-dot-three").addClass("step-dot-disabled")
+            }else{
+                $(".step-dot-one").removeClass("step-dot-disabled")
+                $(".step-two-user" ).fadeTo( "slow" , 1);
+                $(".step-three-user" ).fadeTo( "slow" , 1);
+                updateStepProgress(5);
+                $("#email").focus();
+                $('.filename-placeholder').show();
+                $('.filename-content').html("<br/><span class='filename-placeholder' style='color:blue;font-size: 12px'>Filnamn:"+$(this).val().replace('C:\\fakepath\\','')+"</span>");
+            }
+        });
+/*
+        $("#fileCVUpload").submit(function (event) {
+            event.preventDefault();
+        });
+        $("#btnsubmit").click( function() {
+            var formData = new FormData($('#fileCVUpload')[0]);
+            $("#modalLayer").show();
+            setTimeout( function() {
+                $.ajax({
+                    url: 'uploadFile',
+                    data: formData,
+                    async: false,
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    type: 'POST',
+                    success: function(data)
+                    {
+                        */
+/*
+                         setTimeout(function(){
+                         $("#modalLayer").show();
+                         updateTicket(data.ticket);
+                         window.location.hash=data.location;
+                         $("#modalLayer").hide();
+                         checkURL();
+
+                         },1000);
+                         *//*
+
+
+                    }
+                });
+                $("#modalLayer").hide();
+            }, 500);
+            return false;
+        });
+*/
+        $("#email").on("focus", function(){
+            updateStepProgress(3);
+        });
+        $("#email").on("keyup", function(){
+            var m=$("#fileCVUpload");
+            if(m.valid()){
+                $(".step-dot-two").removeClass("step-dot-disabled")
+            }else{
+                $(".step-dot-two").addClass("step-dot-disabled")
+            }
+        });
+        $("#password").on("focus", function(){
+            updateStepProgress(2);
+        });
+
+        $("#password").on("keyup", function(){
+            var m=$("#fileCVUpload");
+            if(m.valid()){
+                $(".step-dot-two").removeClass("step-dot-disabled")
+            }else{
+                $(".step-dot-two").addClass("step-dot-disabled")
+            }
+        });
+
+        $("#chkTerms").on("click", function(data){
+            if($('#chkTerms').prop('checked')){
+                updateStepProgress(1);
+                $(".step-dot-three").removeClass("step-dot-disabled")
+
+            }else{
+                updateStepProgress(2);
+                $(".step-dot-three").addClass("step-dot-disabled");
+            }
+
+        });
+
+        // Upload CV Sign in fade toggle
+        $( ".step-one-2-user input").on("focus", function(){ $( ".step-one-2-user" ).fadeTo( "slow" , 1)});
+        $('#fileCVUpload').bind('keypress keydown keyup', function(e){
+            if(e.keyCode == 13) { e.preventDefault(); }
+        });
+
     });
+    function showRegistrationPopup(){
+        $("#modalRegistration").modal("show");
+    }
+    function mongo(){
+        $('#test').focus().trigger('click');
+    }
+    function target_popup(form) {
+        window.open('', 'formpopup', 'width=800,height=650,resizeable,scrollbars');
+        form.target = 'formpopup';
+    }
+    // Social Logins
+    $("#signOnLinkedIn").on("click", function(){$("#li_signin").submit();return false;});
+    $("#signOnFacebook").on("click", function(){$("#fb_signin").submit();return false;});
+    $("#signOnGmail").on("click", function(){$("#gmail_signin").submit();return false;});
+
 
     /*]]>*/
 </script>
 
+<!--[if lt IE 9]>
+<script th:src="@{~/common-web/resources/assets/unify/plugins/respond.js}"></script>
+<![endif]-->
+
+
 
 </body>
 
-</html>
+<div th:include="templates/modal :: modalFragment" class="modal fade in" id="modalRegistration"/>
+</html>	

@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import sun.security.krb5.internal.Ticket;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,19 +24,15 @@ public class SessionInterceptor implements HandlerInterceptor  {
     private final Logger logger = LoggerFactory.getLogger(SessionInterceptor.class);
 
     @Override
-    public synchronized boolean preHandle(HttpServletRequest request,
+    public  boolean preHandle(HttpServletRequest request,
                                  HttpServletResponse response, Object handler) throws Exception {
         try {
-                String ticket = null;
-            if (request.getHeader("ticket") != null) {
-                ticket = request.getHeader("ticket").toString();
-                if (ticket.indexOf(",") > 0) {
-                    logger.debug("Removing extra parameter that is send from innobiz");
-                    String ticketCleanup[] = ticket.split(",");
-                    ticket = ticketCleanup[0];
-                }
+            String ticket = null;
+            String ticketFromHeader=request.getHeader("Authority");
+            if (request.getParameter("ticket") != null) {
+                ticket = request.getParameter("ticket").toString();
             } else {
-                ticket = request.getParameter("ticket");
+                throw new TicketNotValidException(TicketNotValidException.NOT_VALID);
             }
             logger.debug("Prehandle: ticket=" + ticket);
             Context context = new Context(ticket);

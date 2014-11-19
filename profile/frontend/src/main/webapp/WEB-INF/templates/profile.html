@@ -1,6 +1,6 @@
 <!--=== Profile ===-->
 <div class="profile container" xmlns="http://www.w3.org/1999/xhtml"
-     xmlns:th="http://www.thymeleaf.org">
+     xmlns:th="http://www.thymeleaf.org" th:fragment="profileFragment">
 <div th:include="application :: userContextFragment"/>
 
 <div class="row">
@@ -418,7 +418,7 @@
     <script th:inline="javascript">
     /*<![CDATA[*/
 
-    jQuery(document).ready(function() {
+    $(document).ready(function() {
         App.init();
         App.initCounter();
         //Datepicker.initDatepicker();

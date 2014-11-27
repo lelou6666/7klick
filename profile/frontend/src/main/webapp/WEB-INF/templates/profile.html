@@ -6,7 +6,7 @@
 <div class="row">
 <!--Left Sidebar-->
 <div class="profile">
-<div class="container content">
+<div class="container">
 
 <div class="row">
 
@@ -22,7 +22,7 @@
 
         <div class="col-md-4">
             <img class="img-responsive profile-img margin-bottom-20" src="/common-web/resources/assets/unify/img/testimonials/user.jpg" alt=""><a href="#">Byt profil bild</a></img>
-            <a class="btn-u btn-u-sm" href="#">Change Picture</a>
+            <a class="btn-u btn-u-sm btn-u-blue" href="#">Change Picture</a>
         </div>
         <div class="col-md-8">
             <h2><span class="lblName">Pierre Petersson</span> <span class="editProfile pull-right"><i class="fa fa-pencil"></i></span></h2>
@@ -41,100 +41,90 @@
 </div><!--/end row-->
     <div class="panel panel-profile">
         <div class="panel-heading overflow-h">
-            <h2 class="panel-title heading-sm pull-left"><i class="icon-folder-alt"></i> Kontoinställnigar </h2>
+            <h2 class="panel-title heading-sm pull-left"><i class="icon-folder-alt"></i> Min profil </h2>
 
             <a href="#" class="lnkAccountSettings"><i class="fa fa-pencil pull-right"></i></a>
         </div>
-        <div class="panel-body margin-bottom-10 pnlAccountSettings" style="display:none">
+        <div class="panel-body margin-bottom-10 pnlAccountSettings">
         <div class="tab-v1">
         <ul class="nav nav-justified nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#profile">Användarinställningar</a></li>
-            <li><a data-toggle="tab" href="#password">Hantera CV</a></li>
-            <li><a data-toggle="tab" href="#payment">Byta lösenord</a></li>
-            <li><a data-toggle="tab" href="#settings">Notifieringar</a></li>
+            <li class="active"><a data-toggle="tab" href="#manageCV">Hantera CV</a></li>
+            <li ><a data-toggle="tab" href="#manageProfile">Kontoinställningar</a></li>
+            <li><a data-toggle="tab" href="#managePassword">Byta lösenord</a></li>
+            <li><a data-toggle="tab" href="#manageNotifications">Notifieringar</a></li>
         </ul>
         <div class="tab-content">
-        <div id="profile" class="profile-edit tab-pane fade in active">
-            <h2 class="heading-md">Manage your Name, ID and Email Addresses.</h2>
-            <p>Below are the name and email addresses on file for your account.</p>
-            <br/>
-            <dl class="dl-horizontal">
-                <dt><strong>Your name </strong></dt>
-                <dd>
-                    Edward Rooster
-                                            <span>
-                                                <a class="pull-right" href="#">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </span>
-                </dd>
-                <hr/>
-                <dt><strong>Your ID </strong></dt>
-                <dd>
-                    FKJ-032440
-                                            <span>
-                                                <a class="pull-right" href="#">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </span>
-                </dd>
-                <hr/>
-                <dt><strong>Company name </strong></dt>
-                <dd>
-                    Htmlstream
-                                            <span>
-                                                <a class="pull-right" href="#">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </span>
-                </dd>
-                <hr/>
-                <dt><strong>Primary Email Address </strong></dt>
-                <dd>
-                    edward-rooster@gmail.com
-                                            <span>
-                                                <a class="pull-right" href="#">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </span>
-                </dd>
-                <hr/>
-                <dt><strong>Phone Number </strong></dt>
-                <dd>
-                    (304) 33-2867-499
-                                            <span>
-                                                <a class="pull-right" href="#">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </span>
-                </dd>
-                <hr/>
-                <dt><strong>Office Number </strong></dt>
-                <dd>
-                    (304) 44-9810-296
-                                            <span>
-                                                <a class="pull-right" href="#">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </span>
-                </dd>
-                <hr/>
-                <dt><strong>Address </strong></dt>
-                <dd>
-                    California, US
-                                            <span>
-                                                <a class="pull-right" href="#">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                            </span>
-                </dd>
-                <hr/>
-            </dl>
-            <button type="button" class="btn-u btn-u-default">Cancel</button>
-            <button type="button" class="btn-u">Save Changes</button>
+
+
+            <div th:replace="templates/manage-cv :: manageCVFragment"/>
+
+            <div id="manageProfile" class="profile-edit tab-pane ">
+                <form action="" id="formManageProfile" class="sky-form" novalidate="novalidate">
+                        <div class="row">
+                            <section class="col col-4">
+                                <label class="label">Användarnamn</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-envelope"></i>
+                                    <input type="email" name="email" placeholder="" disabled="disabled" value="pierre.p@gmail.com"/>
+                                </label>
+                            </section>
+
+                            <section class="col col-4">
+                                <label class="label">Förnamn</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-user"></i>
+                                    <input type="text" name="firstName" placeholder="Ange ditt förnamn"/>
+                                </label>
+                            </section>
+                            <section class="col col-4">
+                                <label class="label">Efternamn</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-user"></i>
+                                    <input type="text" name="lastName" placeholder="Ange ditt efternamn"/>
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+
+                            <section class="col col-4">
+                                <label class="label">Telefonnummer</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-globe"></i>
+                                    <input type="text" name="phonenumber" placeholder="Telefonnummer"/>
+                                </label>
+                            </section>
+                            <section class="col col-4">
+                                <label class="label">Stad</label>
+                                <label class="input">
+                                    <i class="icon-append glyphicon glyphicon-map-marker"></i>
+                                    <input type="text" name="city" placeholder="Ange din stad"/>
+                                </label>
+                            </section>
+                            <section class="col col-4">
+                                <label class="label">Födelsår</label>
+                                <label class="select">
+                                    <select name="yearOfBirth">
+                                        <option value="0">Ange födelsår</option>
+                                        <option value="2000">2000</option>
+                                        <option value="1999">1999</option>
+                                        <option value="1998">1998</option>
+                                        <option value="1997">1997</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+
+                        </div>
+
+                    <footer>
+                        <div class="pull-right">
+                        <button type="submit" class="btn-u btn-u-blue">Spara</button>
+                        </div>
+                    </footer>
+                </form>
         </div>
 
-        <div id="password" class="profile-edit tab-pane fade">
+        <div id="managePassword" class="profile-edit tab-pane fade">
             <h2 class="heading-md">Manage your Security Settings</h2>
             <p>Change your password.</p>
             <br/>
@@ -189,76 +179,10 @@
                 <button type="button" class="btn-u btn-u-default">Cancel</button>
                 <button class="btn-u" type="submit">Save Changes</button>
             </form>
+
+
         </div>
-
-        <div id="payment" class="profile-edit tab-pane fade">
-            <h2 class="heading-md">Manage your Payment Settings</h2>
-            <p>Below are the payment options for your account.</p>
-            <br/>
-            <form class="sky-form" id="sky-form" action="" novalidate="novalidate">
-                <!--Checkout-Form-->
-                <section>
-                    <div class="inline-group">
-                        <label class="radio"><input type="radio" checked="" name="radio-inline"/><i class="rounded-x"></i>Visa</label>
-                        <label class="radio"><input type="radio" name="radio-inline"/><i class="rounded-x"></i>MasterCard</label>
-                        <label class="radio"><input type="radio" name="radio-inline"/><i class="rounded-x"></i>PayPal</label>
-                    </div>
-                </section>
-
-                <section>
-                    <label class="input">
-                        <input type="text" name="name" placeholder="Name on card"/>
-                    </label>
-                </section>
-
-                <div class="row">
-                    <section class="col col-10">
-                        <label class="input">
-                            <input type="text" name="card" id="card" placeholder="Card number"/>
-                        </label>
-                    </section>
-                    <section class="col col-2">
-                        <label class="input">
-                            <input type="text" name="cvv" id="cvv" placeholder="CVV2"/>
-                        </label>
-                    </section>
-                </div>
-
-                <div class="row">
-                    <label class="label col col-4">Expiration date</label>
-                    <section class="col col-5">
-                        <label class="select">
-                            <select name="month">
-                                <option disabled="" selected="" value="0">Month</option>
-                                <option value="1">January</option>
-                                <option value="1">February</option>
-                                <option value="3">March</option>
-                                <option value="4">April</option>
-                                <option value="5">May</option>
-                                <option value="6">June</option>
-                                <option value="7">July</option>
-                                <option value="8">August</option>
-                                <option value="9">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                            </select>
-                            <i></i>
-                        </label>
-                    </section>
-                    <section class="col col-3">
-                        <label class="input">
-                            <input type="text" placeholder="Year" id="year" name="year"/>
-                        </label>
-                    </section>
-                </div>
-                <button type="button" class="btn-u btn-u-default">Cancel</button>
-                <button class="btn-u" type="submit">Save Changes</button>
-                <!--End Checkout-Form-->
-            </form>
-        </div>
-
-        <div id="settings" class="profile-edit tab-pane fade">
+        <div id="manageNotifications" class="profile-edit tab-pane fade">
             <h2 class="heading-md">Manage your Notifications.</h2>
             <p>Below are the notifications you may manage.</p>
             <br/>
@@ -283,8 +207,8 @@
     </div>
 
 
-<!--Timeline-->
-<div class="panel panel-profile">
+<!--Timeline Experience-->
+<div class="panel panel-profile" style="display:none">
     <div class="panel-heading overflow-h">
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> Erfarenhet</h2>
         <a href="#"><i class="fa fa-cog pull-right"></i></a>
@@ -320,8 +244,8 @@
 </div>
 <!--End Timeline-->
 
-<!--Timeline-->
-<div class="panel panel-profile">
+<!--Timeline Education-->
+<div class="panel panel-profile" style="display:none">
     <div class="panel-heading overflow-h">
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-mortar-board"></i> Utbildning</h2>
         <a href="#"><i class="fa fa-cog pull-right"></i></a>
@@ -357,12 +281,10 @@
 </div>
 <!--End Timeline-->
 
-<hr/>
-
 <div class="row">
 
         <!--Skills-->
-        <div class="col-sm-12 sm-margin-bottom-30">
+        <div class="col-sm-12 sm-margin-bottom-30" style="display:none">
             <div class="panel panel-profile">
                 <div class="panel-heading overflow-h">
                     <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> Skills</h2>

@@ -284,3 +284,7 @@ label {
 div.panel-body.no-padding div.dt-top-row{
     margin-top:44px!important;
 }
+.sky-form footer {
+    background: #fff;
+    padding: 15px 2px!important;
+}

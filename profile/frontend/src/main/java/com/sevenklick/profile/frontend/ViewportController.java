@@ -41,7 +41,7 @@ public class ViewportController extends BaseController {
 
     @RequestMapping(value = "/template/login")
     public String loginViewTemplate() throws IOException {
-        return "templates/signon/login";
+        return "templates/login";
     }
 
     @RequestMapping(value = "/secured/template/profile")

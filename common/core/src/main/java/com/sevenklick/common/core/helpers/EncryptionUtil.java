@@ -43,13 +43,13 @@ public class EncryptionUtil {
     private static boolean enableEncryption = true;
     private static Cipher eCipher;
     private static Cipher dCipher;
-    private static EncryptionUtil encryptionUtil;
+    private static EncryptionUtil encryptionUtil=null;
     public static EncryptionUtil getInstance() {
         if(encryptionUtil==null){
             EncryptionUtil.encryptionUtil = new EncryptionUtil();
             try {
-                EncryptionUtil.encryptionUtil.dCipher= initCipher(privateSecurityKey,Cipher.DECRYPT_MODE);
-                EncryptionUtil.encryptionUtil.eCipher= initCipher(privateSecurityKey,Cipher.ENCRYPT_MODE);
+                dCipher= initCipher(privateSecurityKey,Cipher.DECRYPT_MODE);
+                eCipher= initCipher(privateSecurityKey,Cipher.ENCRYPT_MODE);
             } catch (NoSuchAlgorithmException e) {
                 logger.error("Could not initialiaze encryption util", e);
             } catch (InvalidKeySpecException e) {
@@ -73,7 +73,7 @@ public class EncryptionUtil {
      * @return String - Returns the message encrypted
      */
     public static String encrypt(String message) {
-          String encryptedMessage = message;
+          String encryptedMessage;
         try {
 
             //Cipher eCipher = initCipher(privateSecurityKey,Cipher.ENCRYPT_MODE);
@@ -96,7 +96,7 @@ public class EncryptionUtil {
      * @return String - Returns the message decrypted
      */
     public static String decrypt(String message) throws TicketNotValidException {
-        String decryptedMessage=message;
+        String decryptedMessage;
         try {
             byte[] decoded = Base64Util.decodeUrlSafeNoChunks(message.getBytes());
 

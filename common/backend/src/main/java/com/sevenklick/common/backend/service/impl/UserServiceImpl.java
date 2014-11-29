@@ -1,10 +1,12 @@
 package com.sevenklick.common.backend.service.impl;
 
-import com.sevenklick.common.core.exception.NotAuthenticatedException;
-import com.sevenklick.common.backend.domain.UserEntity;
+
 import com.sevenklick.common.backend.service.UserService;
+import com.sevenklick.common.configuration.security.domain.UserSecurity;
+import com.sevenklick.common.configuration.security.repository.AuthenticationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,20 +21,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
 
+    @Autowired
+    AuthenticationRepository authenticationRepository;
     private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Override
-    public UserEntity getAuthenticatedUser(String userName, String providedPassword) throws NotAuthenticatedException {
-        /**
-         * Hardcoded values needs to be looked up from database
-         */
-        UserEntity userEntity = new UserEntity();
-        userEntity.setRoleCode("admin");
-        userEntity.setCountryCode("SE");
-        userEntity.setLangCode("SV");
-        userEntity.setUserName("test");
-        return userEntity;
+    public UserSecurity findUserByUserName(String userName) {
+        return authenticationRepository.find(userName);
 
+    }
+
+    @Override
+    public UserSecurity getAuthenticatedUser(String username, String password) {
+        return null;
     }
 
 }

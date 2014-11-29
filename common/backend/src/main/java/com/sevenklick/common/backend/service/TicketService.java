@@ -1,5 +1,6 @@
 package com.sevenklick.common.backend.service;
 
+        import com.sevenklick.common.configuration.security.domain.UserSecurity;
         import com.sevenklick.common.core.exception.NotAuthenticatedException;
 
 /**

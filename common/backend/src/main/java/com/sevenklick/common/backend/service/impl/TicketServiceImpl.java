@@ -1,14 +1,13 @@
 package com.sevenklick.common.backend.service.impl;
 
 import com.google.gson.Gson;
-
-import com.sevenklick.common.backend.domain.UserEntity;
 import com.sevenklick.common.backend.service.TicketService;
 import com.sevenklick.common.backend.service.UserService;
+import com.sevenklick.common.configuration.security.domain.UserSecurity;
+import com.sevenklick.common.core.domain.UserContext;
 import com.sevenklick.common.core.exception.NotAuthenticatedException;
 import com.sevenklick.common.core.exception.TicketNotValidException;
 import com.sevenklick.common.core.helpers.EncryptionUtil;
-import com.sevenklick.common.core.domain.UserContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,13 +38,10 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public String createTicket(String username, String password) throws NotAuthenticatedException {
         String ticket=null;
-        UserEntity userEntity = userService.getAuthenticatedUser(username, password);
+        UserSecurity userEntity = userService.getAuthenticatedUser(username, password);
         if(userEntity!=null){
             UserContext userContext = new UserContext();
-            userContext.setCountryCode(userEntity.getCountryCode());
-            userContext.setLangCode(userEntity.getLangCode());
-            userContext.setRoleCode(userEntity.getRoleCode());
-            userContext.setUserName(userEntity.getUserName());
+            userContext.setUserName(userEntity.getUsername());
             ticket = EncryptionUtil.getInstance().encrypt((new Gson().toJson(userContext)));
         }
         return ticket;

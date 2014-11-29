@@ -38,6 +38,10 @@ public class ViewportController extends BaseController {
         //return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
     }
 
+    @RequestMapping(value = "/template/student", method = RequestMethod.GET)
+    public String loginViewTemplate(@RequestParam("id") Long id) throws IOException {
+        return "templates/edit";
+    }
 
     @RequestMapping(value = "/template/login")
     public String loginViewTemplate() throws IOException {

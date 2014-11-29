@@ -1,19 +1,21 @@
 package com.sevenklick.common.backend.service;
 
+
+import com.sevenklick.common.backend.facade.TicketFacade;
+import com.sevenklick.common.configuration.security.domain.UserSecurity;
+import com.sevenklick.common.configuration.security.repository.AuthenticationRepository;
 import com.sevenklick.common.core.exception.NotAuthenticatedException;
 import com.sevenklick.common.core.exception.TicketNotValidException;
-import com.sevenklick.common.core.helpers.Base64Util;
-import com.sevenklick.common.backend.domain.UserEntity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by pierre.petersson on 2014-04-06.
@@ -28,20 +30,22 @@ public class TicketServiceTest {
 
     @Autowired
     TicketService ticketService;
+    @Autowired
+    TicketFacade ticketFacade;
+    @Autowired
+    AuthenticationRepository authenticationRepository;
     @Before
     public void init() {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUserName(USER);
-        userEntity.setLangCode("SE");
-        userEntity.setCountryCode("SE");
-        userEntity.setRoleCode("ADMIN");
+        UserSecurity userEntity = new UserSecurity();
+        userEntity.setUsername(USER);
 
     }
     @Test
     public void createTicketIsSuccessful() throws NotAuthenticatedException, TicketNotValidException {
-        String ticket = ticketService.createTicket(USER, PASSWORD_ENCODED);
-        assertNotNull(ticket);
-        assertTrue(Base64Util.isBase64(ticket));
+        StandardPasswordEncoder standardPasswordEncoder = new StandardPasswordEncoder("xYz131--12145.1");
+        System.out.println(standardPasswordEncoder.encode("admin"));
+        UserSecurity userContext=authenticationRepository.find("admin");
+        assertNotNull(userContext);
     }
 
 }

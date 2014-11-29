@@ -6,8 +6,9 @@
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
-
-
     <import resource="classpath*:META-INF/spring/configuration-root-context.xml"/>
-    <context:component-scan base-package="com.sevenklick.common.backend"/>
+    <context:component-scan base-package="com.sevenklick.common.backend">
+        <context:exclude-filter type="regex" expression="com.sevenklick.common.backend.repository.*"/>
+    </context:component-scan>
+    <jpa:repositories base-package="com.sevenklick.common.backend.repository"/>
 </beans>

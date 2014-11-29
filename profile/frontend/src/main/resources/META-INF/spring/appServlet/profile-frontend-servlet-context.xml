@@ -8,7 +8,9 @@
     <!-- Spring MVC configuration -->
     <import resource="classpath*:/META-INF/spring/web-mvc-context.xml"/>
     <!-- Ticket configuration -->
+<!--
     <import resource="classpath*:/META-INF/spring/session-interception.xml"/>
+-->
     <!-- Components to support autowiring in frontend module-->
     <context:component-scan base-package="com.sevenklick.profile.frontend"/>
     <!-- Translation of application texts -->

@@ -50,10 +50,10 @@
 -->
 
     <bean id="primelogDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${primelogDataSource.driverClassName}" />
-        <property name="url" value="${primelogDataSource.url}" />
-        <property name="username" value="${primelogDataSource.username}" />
-        <property name="password" value="${primelogDataSource.password}" />
+        <property name="driverClassName" value="${primelogDataSource.driverClassName}"/>
+        <property name="url" value="${primelogDataSource.url}"/>
+        <property name="username" value="${primelogDataSource.username}"/>
+        <property name="password" value="${primelogDataSource.password}"/>
     </bean>
 
 </beans>

@@ -1,0 +1,53 @@
+DROP TABLE IF EXISTS USER_ROLES;
+DROP TABLE IF EXISTS ROLE_PERMISSIONS;
+DROP TABLE IF EXISTS USERS;
+DROP TABLE IF EXISTS ROLES;
+DROP TABLE IF EXISTS PERMISSIONS;
+
+
+CREATE TABLE USERS (
+    ID SERIAL NOT NULL,
+    USERNAME VARCHAR(50) unique,
+    PASSWORD VARCHAR(120) NOT NULL,
+    ENABLED  boolean not null default true,
+    PRIMARY KEY (ID)
+);
+
+CREATE TABLE ROLES (
+    ID  SERIAL NOT NULL,
+    ROLENAME  VARCHAR(50) NOT NULL UNIQUE,
+    PRIMARY KEY (ID)
+);
+
+CREATE TABLE USER_ROLES (
+    USER_ID int NOT NULL,
+    ROLE_ID int NOT NULL,
+    CONSTRAINT "fkUser" FOREIGN KEY (USER_ID) REFERENCES USERS (ID) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "fkRole" FOREIGN KEY (ROLE_ID) REFERENCES ROLES (ID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE PERMISSIONS (
+    ID SERIAL NOT NULL PRIMARY KEY,
+    PERMISSIONNAME VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE ROLE_PERMISSIONS (
+    ROLE_ID       INT NOT NULL,
+    PERMISSION_ID INT NOT NULL,
+    CONSTRAINT "fkRole" FOREIGN KEY (ROLE_ID) REFERENCES ROLES (ID) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "fkPermisson" FOREIGN KEY (PERMISSION_ID) REFERENCES PERMISSIONS (ID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Create Admin user
+insert into users (id, username, password, enabled) values(1, 'test','452a449c47a20697b47d1dc3d29ccc1974845a5fdaa4a783e115edf301c3c51682484eeda9a891fa', true);
+
+-- Create permisions
+insert into PERMISSIONS (id, PERMISSIONNAME) values (1, 'VIEW_ALL');
+
+-- Create roles
+insert into roles (id, rolename) values (1, 'admin');
+
+-- Create roles permissions
+insert into role_permissions (role_id, permission_id) values (1, 1);
+-- Create roles connected to user
+insert into user_roles (user_id, role_id) values (1, 1);

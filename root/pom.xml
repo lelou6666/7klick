@@ -20,7 +20,7 @@
         <org.springframework.data.version>1.4.5.RELEASE</org.springframework.data.version>
         <org.springframework.integration.version>2.2.5.RELEASE</org.springframework.integration.version>
         <org.springframework.batch.version>2.2.5.RELEASE</org.springframework.batch.version>
-
+        <org.springframework.security.version>3.2.5.RELEASE</org.springframework.security.version>
         <org.hibernate.version>4.2.6.Final</org.hibernate.version>
         <org.hibernate.hibernate-validator.version>4.3.0.Final</org.hibernate.hibernate-validator.version>
         <org.hibernate.javax.persistence.version>1.0.1.Final</org.hibernate.javax.persistence.version>
@@ -48,6 +48,7 @@
         <org.liquibase.ext.version>3.0.0</org.liquibase.ext.version>
         <org.jvnet.wadl>1.1.6</org.jvnet.wadl>
         <com.google.gson>2.2.4</com.google.gson>
+        <com.google.guava>14.0.1</com.google.guava>
         <fasterxml.jackson.version>2.3.2</fasterxml.jackson.version>
         <commons.dbcp>1.4</commons.dbcp>
         <org.junit>4.11</org.junit>
@@ -71,6 +72,32 @@
     <dependencyManagement>
 
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${org.springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${org.springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-taglibs</artifactId>
+                <version>${org.springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${org.springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${com.google.guava}</version>
+            </dependency>
+
             <dependency>
                 <groupId>hsqldb</groupId>
                 <artifactId>hsqldb</artifactId>

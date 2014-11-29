@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <import resource="classpath*:META-INF/spring/common-backend-context.xml"/>
+
+    <import resource="classpath*:META-INF/spring/spring-security-context.xml"/>
+
+    <security:http
+            realm="Protected API"
+            use-expressions="true"
+            auto-config="false"
+            create-session="stateless"
+            entry-point-ref="unauthorizedEntryPoint"
+            authentication-manager-ref="authenticationManager">
+        <security:custom-filter ref="authenticationTokenProcessingFilter" position="FORM_LOGIN_FILTER" />
+
+                <security:intercept-url pattern="/authenticate" access="permitAll" />
+                <security:intercept-url pattern="/test" access="permitAll" />
+                <security:intercept-url pattern="/lookup" access="permitAll" />
+                <security:intercept-url pattern="/rest/services/**" access="permitAll" />
+                <security:intercept-url method="GET" pattern="/util/ticket/**" access="hasRole('user')" />
+                <security:intercept-url method="GET" pattern="/rest/news/**" access="hasRole('user')" />
+                <security:intercept-url method="PUT" pattern="/rest/news/**" access="hasRole('admin')" />
+                <security:intercept-url method="POST" pattern="/rest/news/**" access="hasRole('admin')" />
+                <security:intercept-url method="DELETE" pattern="/rest/news/**" access="hasRole('admin')" />
+    </security:http>
 
 </beans>
